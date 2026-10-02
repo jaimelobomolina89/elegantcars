@@ -39,7 +39,7 @@ home:
   # Background media for the homepage hero. `image` is always required: it is
   # shown on its own, or used as the poster while a video loads.
   # To use a video, set `video` to an .mp4 path, e.g. images/hero.mp4.
-  image: images/hero.png
+  image: images/hero.jpg
   image_alt: "Ferrari SF90 Spider rojo, vista delantera"
   video: ""
 
