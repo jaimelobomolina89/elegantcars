@@ -123,10 +123,6 @@ cars:
     top_speed: 320
     price: 230000
 
-  
-
-  
-
   - id: aston-martin-dbx707
     brand: aston-martin
     type: suv
