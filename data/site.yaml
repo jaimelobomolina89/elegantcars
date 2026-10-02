@@ -214,9 +214,7 @@ cars:
     acceleration: 2.5
     top_speed: 350
     price: 500000
-
-  
-
+    
   - id: porsche-911-turbo-s
     brand: porsche
     type: coupe
