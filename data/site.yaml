@@ -144,23 +144,7 @@ cars:
     top_speed: 330
     price: 300000
 
-  - id: ferrari-purosangue
-    brand: ferrari
-    type: suv
-    model: Purosangue
-    year: 2024
-    color: "#4a1410"
-    tagline: "Cuatro puertas, cuatro plazas, doce cilindros."
-    description: >-
-      El primer Ferrari de cuatro puertas y cuatro plazas mantiene un V12
-      atmosférico delante y puertas traseras de apertura inversa para
-      facilitar el acceso. Su suspensión activa le permite rodar como una
-      limusina y tomar curvas como un deportivo.
-    engine: "V12 atmosférico de 6,5 L"
-    power: 725
-    acceleration: 3.3
-    top_speed: 310
-    price: 390000
+  
 
   - id: aston-martin-dbx707
     brand: aston-martin
