@@ -215,23 +215,7 @@ cars:
     top_speed: 350
     price: 500000
 
-  - id: lamborghini-urus-se
-    brand: lamborghini
-    type: suv
-    model: Urus SE
-    year: 2025
-    color: "#3f6b2a"
-    tagline: "El super SUV se pasa al híbrido enchufable."
-    description: >-
-      El Urus híbrido enchufable combina un V8 biturbo con un motor
-      eléctrico para ofrecer más potencia y un modo eléctrico para circular
-      en silencio por la ciudad. Sigue siendo un Lamborghini de pies a
-      cabeza.
-    engine: "V8 biturbo de 4,0 L híbrido enchufable"
-    power: 800
-    acceleration: 3.4
-    top_speed: 312
-    price: 260000
+  
 
   - id: porsche-911-turbo-s
     brand: porsche
