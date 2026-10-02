@@ -8,7 +8,7 @@ Static web portal for high-end cars. Plain HTML/CSS/JS, no build step, no framew
 - After changes, check all three languages (`?lang=es`, `?lang=en`, `?lang=fr`) and phone width (375px, no horizontal scroll).
 - Browsers cache JS, CSS and images aggressively. Hard refresh (Cmd+Shift+R) before deciding something is broken.
 - `node --check js/<file>.js` for a quick syntax check.
-- `node .github/scripts/validate-yaml.js` validates all YAML with the vendored parser. CI (`.github/workflows/pages.yml`) runs it on every push and only deploys Pages from `main` if it passes. If you add a car field, add it to `CAR_FIELDS` there.
+- `node .github/scripts/validate-yaml.js` validates all YAML with the vendored parser (not run in CI yet). If you add a car field, add it to `CAR_FIELDS` there.
 
 ## Where things live
 

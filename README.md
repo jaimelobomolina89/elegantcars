@@ -52,7 +52,7 @@ Everything is in **`data/site.yaml`**: homepage text and media, contact details,
 - **Add a brand or car type:** add it to `brands:` or `types:`. It appears on the filters page automatically.
 - **Change contact details:** edit `contact:`. The phone number and email currently there are placeholders.
 
-**Automatic check:** every push runs a check on the YAML files (GitHub → Actions tab). If a file has an error, such as broken indentation, a field left half-deleted, or a `brand`/`type` that doesn't match a slug, the site is **not** published and the live site keeps the last good version. Open the failed run to see the file, line and what to fix. Warnings, such as leftover translations or credits for deleted images, don't block publishing. To run the same check locally: `node .github/scripts/validate-yaml.js`.
+**Checking the YAML:** before pushing, run `node .github/scripts/validate-yaml.js`. It reports errors that would stop the site loading or break filters, such as broken indentation, a field left half-deleted, or a `brand`/`type` that doesn't match a slug, with the file and line to fix. It also gives warnings for smaller issues, such as leftover translations or credits for deleted images.
 
 ## Images
 
