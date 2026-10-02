@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>elegantcars · High-end cars</title>
+  <meta name="description" content="A curated stock of high-end cars from Ferrari, Aston Martin, Lamborghini, Porsche and BMW.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="page-home">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <span class="logo">elegant<span>cars</span></span>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="filters.html">Filters</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div id="hero-media" class="hero-media"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <p id="hero-eyebrow" class="eyebrow"></p>
+        <h1 id="hero-title"></h1>
+        <p id="hero-text" class="lede"></p>
+        <a id="hero-button" class="button button-hero" href="filters.html">Find your car</a>
+      </div>
+      <button type="button" id="hero-toggle" class="hero-toggle" hidden></button>
+    </section>
+    <div class="container">
+      <p id="load-error" class="load-error" role="alert" hidden></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p id="footer-note"></p>
+    </div>
+  </footer>
+
+  <script src="js/vendor/js-yaml/js-yaml.umd.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

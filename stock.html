@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stock · elegantcars</title>
+  <meta name="description" content="High-end cars currently in stock at elegantcars.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <span class="logo">elegant<span>cars</span></span>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="filters.html">Filters</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <div class="page-intro">
+      <p class="eyebrow">Stock</p>
+      <h1 id="stock-title">All cars</h1>
+      <div id="active-filters" class="active-filters" hidden></div>
+      <p id="results-status" class="results-status"></p>
+    </div>
+
+    <p id="load-error" class="load-error" role="alert" hidden></p>
+
+    <div id="car-grid" class="car-grid"></div>
+
+    <div id="empty-state" class="empty-state" hidden>
+      <p>No cars in stock match this selection.</p>
+      <p class="empty-actions">
+        <a class="button" href="filters.html">Change filters</a>
+        <a class="button button-ghost" href="stock.html">See all cars</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p id="footer-note"></p>
+    </div>
+  </footer>
+
+  <script src="js/vendor/js-yaml/js-yaml.umd.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/stock.js"></script>
+</body>
+</html>

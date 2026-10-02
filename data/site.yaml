@@ -1,0 +1,203 @@
+# elegantcars: the single source of content for the whole site.
+#
+# Edit this file and reload the page; no build step is needed.
+# Tips:
+#   - Quote anything starting with "#" (e.g. colours), otherwise YAML treats it as a comment.
+#   - Indentation matters: use two spaces, never tabs.
+#   - `brand` and `type` on each car must match a `slug` from the lists below.
+#   - All images live in the images/ folder. To change one, replace the file
+#     and keep its name (or point the `image` field at a new file).
+
+site:
+  footer: >-
+    © elegantcars. Specifications are indicative and prices are approximate
+    starting prices. Illustrations are stylised and not to scale.
+
+home:
+  eyebrow: The collection
+  title: Cars that define modern luxury
+  text: >-
+    Hand-picked grand tourers, saloons and SUVs from the world's most
+    desirable marques.
+  button: Find your car
+  # Background media for the homepage hero. `image` is always required: it is
+  # shown on its own, or used as the poster while a video loads.
+  # To use a video, set `video` to an .mp4 path, e.g. images/hero.mp4.
+  image: images/hero.jpg
+  image_alt: Illustration of a red grand-touring coupe on an open road at sunset
+  video: ""
+
+# Order here is the order shown on the filters page.
+brands:
+  - slug: ferrari
+    name: Ferrari
+  - slug: aston-martin
+    name: Aston Martin
+  - slug: lamborghini
+    name: Lamborghini
+  - slug: porsche
+    name: Porsche
+  - slug: bmw
+    name: BMW
+
+types:
+  - slug: suv
+    name: SUV
+  - slug: berlina
+    name: Berlina
+  - slug: cabrio
+    name: Cabrio
+  - slug: coupe
+    name: Coupe
+
+# The stock. Fields:
+#   id            unique, lowercase, no spaces
+#   brand, type   slugs from the lists above
+#   color         paint colour for the fallback illustration (quoted hex)
+#   image         photo path. Optional: if left out it defaults to
+#                 images/cars/<id>.jpg, so a new car only needs a photo saved
+#                 under its id. If the file is missing, an illustration of the
+#                 car type is shown instead.
+#   image_alt     optional description of the photo; defaults to the car's name
+#   power         PS, acceleration: 0–100 km/h in seconds, top_speed: km/h
+#   price         approximate starting price in euros
+cars:
+  - id: ferrari-roma
+    brand: ferrari
+    type: coupe
+    model: Roma
+    year: 2024
+    color: "#8c1c13"
+    image: images/cars/ferrari-roma.jpg
+    tagline: La nuova dolce vita, in grand-touring form.
+    engine: 3.9 L twin-turbo V8
+    power: 620
+    acceleration: 3.4
+    top_speed: 320
+    price: 230000
+
+  - id: ferrari-296-gts
+    brand: ferrari
+    type: cabrio
+    model: 296 GTS
+    year: 2024
+    color: "#b5121b"
+    image: images/cars/ferrari-296-gts.jpg
+    tagline: Six cylinders, one electric motor, open sky.
+    engine: 3.0 L twin-turbo V6 plug-in hybrid
+    power: 830
+    acceleration: 2.9
+    top_speed: 330
+    price: 300000
+
+  - id: ferrari-purosangue
+    brand: ferrari
+    type: suv
+    model: Purosangue
+    year: 2024
+    color: "#4a1410"
+    image: images/cars/ferrari-purosangue.jpg
+    tagline: Four doors, four seats, twelve cylinders.
+    engine: 6.5 L naturally aspirated V12
+    power: 725
+    acceleration: 3.3
+    top_speed: 310
+    price: 390000
+
+  - id: aston-martin-dbx707
+    brand: aston-martin
+    type: suv
+    model: DBX707
+    year: 2024
+    color: "#20473a"
+    image: images/cars/aston-martin-dbx707.jpg
+    tagline: The SUV with a sports car's soul.
+    engine: 4.0 L twin-turbo V8
+    power: 707
+    acceleration: 3.3
+    top_speed: 310
+    price: 250000
+
+  - id: aston-martin-db12-volante
+    brand: aston-martin
+    type: cabrio
+    model: DB12 Volante
+    year: 2024
+    color: "#2f5d50"
+    image: images/cars/aston-martin-db12-volante.jpg
+    tagline: The super tourer, with the roof down.
+    engine: 4.0 L twin-turbo V8
+    power: 680
+    acceleration: 3.7
+    top_speed: 325
+    price: 260000
+
+  - id: lamborghini-revuelto
+    brand: lamborghini
+    type: coupe
+    model: Revuelto
+    year: 2024
+    color: "#c9a227"
+    image: images/cars/lamborghini-revuelto.jpg
+    tagline: The V12 flagship, electrified.
+    engine: 6.5 L V12 plug-in hybrid
+    power: 1015
+    acceleration: 2.5
+    top_speed: 350
+    price: 500000
+
+  - id: lamborghini-urus-se
+    brand: lamborghini
+    type: suv
+    model: Urus SE
+    year: 2025
+    color: "#3f6b2a"
+    image: images/cars/lamborghini-urus-se.jpg
+    tagline: The super SUV goes plug-in hybrid.
+    engine: 4.0 L twin-turbo V8 plug-in hybrid
+    power: 800
+    acceleration: 3.4
+    top_speed: 312
+    price: 260000
+
+  - id: porsche-911-turbo-s
+    brand: porsche
+    type: coupe
+    model: 911 Turbo S
+    year: 2025
+    color: "#5a6470"
+    image: images/cars/porsche-911-turbo-s.jpg
+    tagline: The everyday hypercar.
+    engine: 3.6 L twin-turbo flat-six hybrid
+    power: 711
+    acceleration: 2.5
+    top_speed: 322
+    price: 270000
+
+  - id: porsche-panamera-turbo-s-e-hybrid
+    brand: porsche
+    type: berlina
+    model: Panamera Turbo S E-Hybrid
+    year: 2025
+    color: "#1f2a44"
+    image: images/cars/porsche-panamera-turbo-s-e-hybrid.jpg
+    tagline: Four-door comfort, sports car pace.
+    engine: 4.0 L twin-turbo V8 plug-in hybrid
+    power: 782
+    acceleration: 2.9
+    top_speed: 325
+    price: 240000
+
+  - id: bmw-m5
+    brand: bmw
+    type: berlina
+    model: M5
+    year: 2025
+    color: "#2d3e50"
+    image: images/cars/bmw-m5.jpg
+    tagline: The original super saloon, now electrified.
+    engine: 4.4 L twin-turbo V8 plug-in hybrid
+    power: 727
+    acceleration: 3.5
+    top_speed: 305
+    price: 145000
