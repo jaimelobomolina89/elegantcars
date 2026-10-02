@@ -70,7 +70,7 @@ cars:
     color: "#8c1c13"
     image: images/cars/ferrari-roma.jpg
     tagline: La nuova dolce vita, in grand-touring form.
-    engine: 3.9 L twin-turbo V8
+    engine: 3.9 L twin-turbo V9
     power: 620
     acceleration: 3.4
     top_speed: 320
