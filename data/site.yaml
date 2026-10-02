@@ -179,7 +179,7 @@ cars:
     to_speed: 322
     price: 
 
-    - id: BMW-m8
+  - id: BMW-m8
     brand: BMW
     type: coupe
     model: BMW
