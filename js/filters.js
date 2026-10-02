@@ -33,10 +33,34 @@ Elegant.boot(function (data) {
     return li;
   }
 
+  // Brand and type names are printed under their images, so the images are
+  // decorative (empty alt). Each candidate file (.png, .jpg, .jpeg, .svg) is
+  // tried in turn. A brand with no logo shows just its name; a type with no
+  // image falls back to the drawn silhouette.
+  function logo(brand) {
+    var img = Elegant.imageFromCandidates(brand.logos, function (missing) {
+      missing.closest(".tile-media").remove();
+    });
+    img.alt = "";
+    img.className = "tile-logo";
+    return img;
+  }
+
+  function typeImage(type) {
+    var img = Elegant.imageFromCandidates(type.images, function (missing) {
+      var media = missing.closest(".tile-media");
+      media.classList.remove("tile-media-photo");
+      media.replaceChildren(Elegant.silhouette(type.slug));
+    });
+    img.alt = "";
+    img.className = "tile-type-image";
+    return img;
+  }
+
   var brandList = document.getElementById("brand-tiles");
   data.brands.forEach(function (brand) {
     brandList.appendChild(
-      tile("stock.html?brand=" + encodeURIComponent(brand.slug), brand.name, count("brand", brand.slug))
+      tile("stock.html?brand=" + encodeURIComponent(brand.slug), brand.name, count("brand", brand.slug), logo(brand))
     );
   });
 
@@ -47,9 +71,12 @@ Elegant.boot(function (data) {
         "stock.html?type=" + encodeURIComponent(type.slug),
         type.name,
         count("type", type.slug),
-        Elegant.silhouette(type.slug)
+        typeImage(type)
       )
     );
+  });
+  typeList.querySelectorAll(".tile-media").forEach(function (media) {
+    media.classList.add("tile-media-photo");
   });
 
   var all = document.getElementById("all-link");

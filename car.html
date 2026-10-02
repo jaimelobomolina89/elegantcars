@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Car · elegantcars</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <span class="logo">elegant<span>cars</span></span>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="filters.html">Filters</a></li>
+          <li><a href="stock.html">Stock</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <p class="back-link-wrap"><a id="back-link" class="back-link" href="stock.html">Back to stock</a></p>
+      <p id="load-error" class="load-error" role="alert" hidden></p>
+    </div>
+
+    <article id="car-detail" class="detail" hidden>
+      <div id="car-media-slot" class="detail-hero"></div>
+
+      <div class="container detail-layout">
+        <div class="detail-main">
+          <p id="car-meta" class="eyebrow"></p>
+          <h1 id="car-name"></h1>
+          <p id="car-tagline" class="lede"></p>
+          <p id="car-description" class="detail-description"></p>
+          <p id="car-price" class="detail-price"></p>
+        </div>
+
+        <aside class="detail-specs" aria-labelledby="specs-heading">
+          <h2 id="specs-heading">Specifications</h2>
+          <dl id="car-specs" class="spec-table"></dl>
+          <p class="detail-links">
+            <a id="more-brand" href="stock.html"></a>
+            <a id="more-type" href="stock.html"></a>
+          </p>
+        </aside>
+      </div>
+    </article>
+
+    <div id="car-not-found" class="container" hidden>
+      <div class="empty-state">
+        <h1>Car not found</h1>
+        <p>This car isn't in stock any more, or the link is wrong.</p>
+        <p class="empty-actions"><a class="button" href="stock.html">See all cars</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p id="footer-note"></p>
+    </div>
+  </footer>
+
+  <script src="js/vendor/js-yaml/js-yaml.umd.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/car.js"></script>
+</body>
+</html>

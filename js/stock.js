@@ -62,20 +62,9 @@ Elegant.boot(function (data) {
     var article = document.createElement("article");
     article.className = "card";
 
-    // Show the car's photo; if the file is missing, fall back to the drawn
-    // silhouette so a new car never shows a broken image.
-    var media = document.createElement("div");
-    media.className = "card-media card-media-photo";
-    var img = document.createElement("img");
-    img.src = car.image;
-    img.alt = car.image_alt || car.fullName;
-    img.loading = "lazy";
-    img.addEventListener("error", function () {
-      console.warn("Image not found for '" + car.id + "': " + car.image);
-      media.className = "card-media";
-      media.replaceChildren(Elegant.silhouette(car.type, car.color));
-    });
-    media.appendChild(img);
+    var media = Elegant.carMedia(car, "card-media");
+    var photo = media.querySelector("img");
+    if (photo) photo.loading = "lazy";
 
     var body = document.createElement("div");
     body.className = "card-body";
@@ -86,7 +75,12 @@ Elegant.boot(function (data) {
 
     var heading = document.createElement("h2");
     heading.className = "card-title";
-    heading.textContent = car.fullName;
+    // The title link is stretched over the whole card in CSS, so the entire
+    // card opens the detail page while screen readers hear a single link.
+    var link = document.createElement("a");
+    link.href = Elegant.carUrl(car);
+    link.textContent = car.fullName;
+    heading.appendChild(link);
 
     body.append(meta, heading);
 

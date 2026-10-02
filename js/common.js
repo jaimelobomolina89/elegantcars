@@ -59,7 +59,97 @@
     return svg;
   }
 
-  var priceFormat = new Intl.NumberFormat("en-GB", {
+  // A container holding the car's photo. If the file is missing it falls back
+  // to the drawn silhouette, so a new car never shows a broken image.
+  function carMedia(car, className) {
+    var media = document.createElement("div");
+    media.className = className + " " + className + "-photo";
+    var img = document.createElement("img");
+    img.src = car.image;
+    img.alt = car.image_alt || car.fullName;
+    img.addEventListener("error", function () {
+      console.warn("Image not found for '" + car.id + "': " + car.image);
+      media.className = className;
+      media.replaceChildren(silhouette(car.type, car.color));
+    });
+    media.appendChild(img);
+    return media;
+  }
+
+  var IMAGE_EXTENSIONS = ["png", "jpg", "jpeg", "svg"];
+
+  // Files to try, in order: the explicit path from site.yaml if set, otherwise
+  // <base> with each supported extension.
+  function imageCandidates(explicit, base) {
+    if (explicit) return [explicit];
+    return IMAGE_EXTENSIONS.map(function (ext) {
+      return base + "." + ext;
+    });
+  }
+
+  // An <img> that tries each candidate in turn and calls onMissing if none of
+  // them exists.
+  function imageFromCandidates(candidates, onMissing) {
+    var img = document.createElement("img");
+    var queue = candidates.slice();
+    img.addEventListener("error", function () {
+      if (queue.length) {
+        img.src = queue.shift();
+        return;
+      }
+      console.warn("No image found, tried: " + candidates.join(", "));
+      onMissing(img);
+    });
+    img.src = queue.shift();
+    return img;
+  }
+
+  function photoPath(car, n) {
+    return "images/cars/" + car.id + "/" + n + ".jpg";
+  }
+
+  function loads(src) {
+    return new Promise(function (resolve) {
+      var probe = new Image();
+      probe.onload = function () {
+        resolve(true);
+      };
+      probe.onerror = function () {
+        resolve(false);
+      };
+      probe.src = src;
+    });
+  }
+
+  // Resolves to the list of a car's photos that actually exist: the explicit
+  // `images` list if given, otherwise 1.jpg, 2.jpg, … up to the first gap.
+  // A static site can't list a folder, so numbered files are probed in order,
+  // with no upper limit.
+  function findPhotos(car) {
+    if (car.images.length) {
+      return Promise.all(car.images.map(loads)).then(function (ok) {
+        return car.images.filter(function (src, i) {
+          return ok[i];
+        });
+      });
+    }
+    var found = [];
+    function next(n) {
+      var src = photoPath(car, n);
+      return loads(src).then(function (ok) {
+        if (!ok) return found;
+        found.push(src);
+        return next(n + 1);
+      });
+    }
+    return next(1);
+  }
+
+  function carUrl(car) {
+    return "car.html?id=" + encodeURIComponent(car.id);
+  }
+
+  var priceFormat =new Intl.NumberFormat("en-GB", {
     style: "currency",
     currency: "EUR",
     maximumFractionDigits: 0
@@ -85,10 +175,13 @@
       brandBySlug: {},
       typeBySlug: {}
     };
+    data.contact = raw.contact || {};
     data.brands.forEach(function (b) {
+      b.logos = imageCandidates(b.logo, "images/brands/" + b.slug);
       data.brandBySlug[b.slug] = b;
     });
     data.types.forEach(function (t) {
+      t.images = imageCandidates(t.image, "images/types/" + t.slug);
       data.typeBySlug[t.slug] = t;
     });
     data.cars.forEach(function (car) {
@@ -99,8 +192,10 @@
       car.brandName = brand ? brand.name : car.brand;
       car.typeName = type ? type.name : car.type;
       car.fullName = car.brandName + " " + car.model;
-      // Convention: a car's photo is images/cars/<id>.jpg unless set explicitly.
-      car.image = car.image || "images/cars/" + car.id + ".jpg";
+      // Convention: a car's photos are images/cars/<id>/1.jpg, 2.jpg, … unless
+      // an explicit `images` list is given. The first one is its main photo.
+      car.images = Array.isArray(car.images) ? car.images.filter(Boolean) : [];
+      car.image = car.images[0] || photoPath(car, 1);
     });
     return data;
   }
@@ -136,6 +231,10 @@
   window.Elegant = {
     boot: boot,
     silhouette: silhouette,
+    carMedia: carMedia,
+    findPhotos: findPhotos,
+    imageFromCandidates: imageFromCandidates,
+    carUrl: carUrl,
     formatPrice: formatPrice,
     plural: plural
   };

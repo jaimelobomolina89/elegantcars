@@ -6,7 +6,7 @@
 #   - Indentation matters: use two spaces, never tabs.
 #   - `brand` and `type` on each car must match a `slug` from the lists below.
 #   - All images live in the images/ folder. To change one, replace the file
-#     and keep its name (or point the `image` field at a new file).
+#     and keep its name.
 
 site:
   footer: >-
@@ -27,7 +27,20 @@ home:
   image_alt: Illustration of a red grand-touring coupe on an open road at sunset
   video: ""
 
+# Contact page. Replace these placeholder details with your real ones.
+contact:
+  title: Contact us
+  text: >-
+    Interested in a car from our stock, or looking for something specific?
+    Call or email us and we'll get back to you.
+  phone: "+1 555 0100"
+  email: hello@example.com
+
 # Order here is the order shown on the filters page.
+# Logos: save each brand's logo as images/brands/<slug>.png (or .jpg, .jpeg,
+# .svg; they are tried in that order). No entry here is needed. To use another
+# file name, add `logo: images/brands/<file>` to the brand. If no logo file is
+# found, the brand name is shown on its own.
 brands:
   - slug: ferrari
     name: Ferrari
@@ -40,6 +53,10 @@ brands:
   - slug: bmw
     name: BMW
 
+# Car type images on the filters page: save each one as images/types/<slug>.png
+# (or .jpg, .jpeg, .svg; they are tried in that order). No entry here is
+# needed. To use another file name, add `image: images/types/<file>` to the
+# type. If no image is found, a drawn illustration of the car type is shown.
 types:
   - slug: suv
     name: SUV
@@ -54,11 +71,21 @@ types:
 #   id            unique, lowercase, no spaces
 #   brand, type   slugs from the lists above
 #   color         paint colour for the fallback illustration (quoted hex)
-#   image         photo path. Optional: if left out it defaults to
-#                 images/cars/<id>.jpg, so a new car only needs a photo saved
-#                 under its id. If the file is missing, an illustration of the
-#                 car type is shown instead.
-#   image_alt     optional description of the photo; defaults to the car's name
+#
+# Photos: each car has a folder named after its id, with numbered photos:
+#   images/cars/<id>/1.jpg, 2.jpg, 3.jpg, …
+# Photo 1 is used on the stock page; the detail page shows them all in a
+# carousel, in number order. To add a photo, just add the next number; no
+# change to this file is needed. If a car has no photos, an illustration of
+# its car type is shown instead.
+#
+#   images        optional list of photo paths, to use other file names or a
+#                 custom order instead of the numbered convention, e.g.
+#                   images:
+#                     - images/cars/bmw-m5/front.jpg
+#                     - images/cars/bmw-m5/interior.jpg
+#   tagline       one line, shown on the stock card and the detail page
+#   description   optional longer text, shown on the car's detail page
 #   power         PS, acceleration: 0–100 km/h in seconds, top_speed: km/h
 #   price         approximate starting price in euros
 cars:
@@ -68,9 +95,12 @@ cars:
     model: Roma
     year: 2024
     color: "#8c1c13"
-    image: images/cars/ferrari-roma.jpg
     tagline: La nuova dolce vita, in grand-touring form.
-    engine: 3.9 L twin-turbo V9
+    description: >-
+      A front-engined 2+2 coupe that trades aggression for poise. Long bonnet,
+      clean flanks and a cabin split into two cockpits make the Roma a Ferrari
+      for crossing continents rather than chasing lap times.
+    engine: 3.9 L twin-turbo V8
     power: 620
     acceleration: 3.4
     top_speed: 320
@@ -82,8 +112,11 @@ cars:
     model: 296 GTS
     year: 2024
     color: "#b5121b"
-    image: images/cars/ferrari-296-gts.jpg
     tagline: Six cylinders, one electric motor, open sky.
+    description: >-
+      The retractable hard-top version of Ferrari's plug-in hybrid berlinetta.
+      Its compact V6 pairs with an electric motor for instant response, and the
+      roof folds away in fourteen seconds.
     engine: 3.0 L twin-turbo V6 plug-in hybrid
     power: 830
     acceleration: 2.9
@@ -96,8 +129,11 @@ cars:
     model: Purosangue
     year: 2024
     color: "#4a1410"
-    image: images/cars/ferrari-purosangue.jpg
     tagline: Four doors, four seats, twelve cylinders.
+    description: >-
+      Ferrari's first four-door, four-seater keeps a naturally aspirated V12 up
+      front and rear-hinged back doors for easy access. Active suspension lets
+      it ride like a limousine and corner like a sports car.
     engine: 6.5 L naturally aspirated V12
     power: 725
     acceleration: 3.3
@@ -110,8 +146,11 @@ cars:
     model: DBX707
     year: 2024
     color: "#20473a"
-    image: images/cars/aston-martin-dbx707.jpg
     tagline: The SUV with a sports car's soul.
+    description: >-
+      Aston Martin's performance SUV takes its name from its 707 PS output. A
+      wet-clutch nine-speed gearbox, carbon-ceramic brakes and sharpened chassis
+      tuning keep it agile despite its size.
     engine: 4.0 L twin-turbo V8
     power: 707
     acceleration: 3.3
@@ -124,8 +163,11 @@ cars:
     model: DB12 Volante
     year: 2024
     color: "#2f5d50"
-    image: images/cars/aston-martin-db12-volante.jpg
     tagline: The super tourer, with the roof down.
+    description: >-
+      The open-top DB12 pairs a twin-turbo V8 with a fabric roof that folds in
+      seconds. Grand-touring comfort and a hand-finished cabin make it as suited
+      to long journeys as to coastal roads.
     engine: 4.0 L twin-turbo V8
     power: 680
     acceleration: 3.7
@@ -138,8 +180,11 @@ cars:
     model: Revuelto
     year: 2024
     color: "#c9a227"
-    image: images/cars/lamborghini-revuelto.jpg
     tagline: The V12 flagship, electrified.
+    description: >-
+      Lamborghini's first high-performance hybrid keeps a naturally aspirated
+      V12 at its heart and adds three electric motors. Scissor doors and a
+      carbon monocoque complete a car built for theatre.
     engine: 6.5 L V12 plug-in hybrid
     power: 1015
     acceleration: 2.5
@@ -152,8 +197,11 @@ cars:
     model: Urus SE
     year: 2025
     color: "#3f6b2a"
-    image: images/cars/lamborghini-urus-se.jpg
     tagline: The super SUV goes plug-in hybrid.
+    description: >-
+      The plug-in hybrid Urus combines a twin-turbo V8 with an electric motor
+      for more power and an electric-only mode for silent city driving. It is
+      still every inch a Lamborghini.
     engine: 4.0 L twin-turbo V8 plug-in hybrid
     power: 800
     acceleration: 3.4
@@ -166,8 +214,11 @@ cars:
     model: 911 Turbo S
     year: 2025
     color: "#5a6470"
-    image: images/cars/porsche-911-turbo-s.jpg
     tagline: The everyday hypercar.
+    description: >-
+      The latest 911 Turbo S adds hybrid assistance to its flat-six, sharpening
+      response without diluting the car's legendary usability. All-wheel drive
+      puts its power down in any weather.
     engine: 3.6 L twin-turbo flat-six hybrid
     power: 711
     acceleration: 2.5
@@ -180,8 +231,11 @@ cars:
     model: Panamera Turbo S E-Hybrid
     year: 2025
     color: "#1f2a44"
-    image: images/cars/porsche-panamera-turbo-s-e-hybrid.jpg
     tagline: Four-door comfort, sports car pace.
+    description: >-
+      Porsche's flagship four-door combines a twin-turbo V8 and an electric
+      motor. Active suspension lets it switch between relaxed long-distance
+      cruiser and track-capable sports saloon.
     engine: 4.0 L twin-turbo V8 plug-in hybrid
     power: 782
     acceleration: 2.9
@@ -194,8 +248,11 @@ cars:
     model: M5
     year: 2025
     color: "#2d3e50"
-    image: images/cars/bmw-m5.jpg
     tagline: The original super saloon, now electrified.
+    description: >-
+      The seventh-generation M5 adds a plug-in hybrid system to its twin-turbo
+      V8, making it the most powerful M5 yet. It seats five in comfort and
+      covers short trips on electric power alone.
     engine: 4.4 L twin-turbo V8 plug-in hybrid
     power: 727
     acceleration: 3.5

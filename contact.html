@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Filters · elegantcars</title>
-  <meta name="description" content="Browse the elegantcars stock by brand or by car type.">
+  <title>Contact · elegantcars</title>
+  <meta name="description" content="How to contact elegantcars by phone or email.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -16,8 +16,8 @@
       <nav aria-label="Main">
         <ul class="nav-list">
           <li><a href="index.html">Home</a></li>
+          <li><a href="filters.html">Filters</a></li>
           <li><a href="stock.html">Stock</a></li>
-          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -25,24 +25,23 @@
 
   <main id="main" class="container">
     <div class="page-intro">
-      <p class="eyebrow">Find your car</p>
-      <h1>Filters</h1>
-      <p class="lede">Choose a brand or a car type to see the matching cars in stock.</p>
+      <p class="eyebrow">Contact</p>
+      <h1 id="contact-title">Contact us</h1>
+      <p id="contact-text" class="lede"></p>
     </div>
 
     <p id="load-error" class="load-error" role="alert" hidden></p>
 
-    <section class="filter-group" aria-labelledby="brand-heading">
-      <h2 id="brand-heading">By brand</h2>
-      <ul id="brand-tiles" class="tile-grid tile-grid-brands"></ul>
-    </section>
-
-    <section class="filter-group" aria-labelledby="type-heading">
-      <h2 id="type-heading">By car type</h2>
-      <ul id="type-tiles" class="tile-grid"></ul>
-    </section>
-
-    <p class="all-link-wrap"><a id="all-link" href="stock.html" hidden>See all cars</a></p>
+    <div class="contact-grid">
+      <div id="contact-phone-card" class="contact-card" hidden>
+        <h2>Phone</h2>
+        <a id="contact-phone" class="contact-value" href=""></a>
+      </div>
+      <div id="contact-email-card" class="contact-card" hidden>
+        <h2>Email</h2>
+        <a id="contact-email" class="contact-value" href=""></a>
+      </div>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -53,6 +52,6 @@
 
   <script src="js/vendor/js-yaml/js-yaml.umd.min.js"></script>
   <script src="js/common.js"></script>
-  <script src="js/filters.js"></script>
+  <script src="js/contact.js"></script>
 </body>
 </html>

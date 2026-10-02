@@ -164,7 +164,9 @@ a:hover {
 
 .nav-list {
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px 16px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -408,10 +410,13 @@ a:hover {
 }
 
 .tile-media {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 10;
   background: var(--surface-muted);
   border-radius: 6px;
-  padding: 16px 12px 8px;
+  padding: 12px;
   margin-bottom: 12px;
   color: var(--ink-muted);
 }
@@ -423,8 +428,42 @@ a:hover {
 }
 
 .tile-grid-brands .tile {
-  padding: 28px 20px;
+  align-items: center;
+  text-align: center;
+  padding: 24px 20px;
   border-top: 3px solid var(--accent);
+}
+
+/* Logos vary from square emblems to long wordmarks, so each is fitted inside
+   the same box. The light plate keeps dark logos visible in dark mode. */
+.tile-grid-brands .tile-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 88px;
+  padding: 12px 16px;
+  margin-bottom: 14px;
+  background: #ffffff;
+  border-radius: 6px;
+}
+
+.tile-media-photo {
+  padding: 0;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.tile-type-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tile-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .tile-count {
@@ -492,12 +531,32 @@ a:hover {
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 28px var(--shadow);
+}
+
+/* The focus ring goes on the whole card, matching its click area. */
+.card:focus-within {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: none;
+  }
 }
 
 .card-media {
@@ -534,6 +593,21 @@ a:hover {
 .card-title {
   font-size: 1.375rem;
   margin-bottom: 6px;
+}
+
+.card-title a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.card-title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.card-title a:focus-visible {
+  outline: none;
 }
 
 .card-tagline {
@@ -604,4 +678,252 @@ a:hover {
 
 .silhouette-rim {
   fill: var(--rim);
+}
+
+/* Car detail page */
+
+.back-link-wrap {
+  margin: 20px 0;
+}
+
+.back-link {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back-link::before {
+  content: "← ";
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.detail-hero {
+  background: var(--surface-muted);
+}
+
+.detail-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 48px 16px 32px;
+}
+
+.detail-media .silhouette {
+  width: min(100%, 900px);
+}
+
+.detail-media-photo {
+  padding: 0;
+  aspect-ratio: 16 / 9;
+  max-height: 78vh;
+}
+
+.detail-media-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-layout {
+  display: grid;
+  gap: 32px;
+  padding-top: 40px;
+}
+
+@media (min-width: 900px) {
+  .detail-layout {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 64px;
+  }
+}
+
+.detail-description {
+  max-width: 62ch;
+}
+
+.detail-price {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  color: var(--accent);
+  margin: 24px 0 0;
+}
+
+.detail-specs h2 {
+  font-size: 1.25rem;
+}
+
+.spec-table {
+  margin: 0 0 24px;
+  border-top: 1px solid var(--line);
+}
+
+.spec-table div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.spec-table dt {
+  color: var(--ink-muted);
+}
+
+.spec-table dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+
+.detail-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+/* Contact page */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 760px;
+}
+
+.contact-card {
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius);
+}
+
+.contact-card h2 {
+  font-size: 0.8125rem;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-muted);
+  margin-bottom: 8px;
+}
+
+.contact-value {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  overflow-wrap: anywhere;
+}
+
+/* Car detail carousel */
+
+.carousel {
+  background: var(--surface-muted);
+  padding-bottom: 16px;
+}
+
+.carousel-stage {
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  max-height: 78vh;
+  overflow: hidden;
+  background: #0c0b0a;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(12, 11, 10, 0.6);
+  color: #fff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.carousel-btn:hover {
+  background: rgba(12, 11, 10, 0.85);
+}
+
+.carousel-btn:focus-visible {
+  outline-color: #fff;
+}
+
+.carousel-prev {
+  left: 16px;
+}
+
+.carousel-next {
+  right: 16px;
+}
+
+.carousel-counter {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  margin: 0;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(12, 11, 10, 0.65);
+  color: #fff;
+  font-size: 0.875rem;
+}
+
+.carousel-thumbs {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  margin: 16px auto 0;
+  overflow-x: auto;
+}
+
+.carousel-thumb {
+  display: block;
+  width: 112px;
+  aspect-ratio: 16 / 10;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  overflow: hidden;
+  background: none;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.carousel-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-thumb:hover,
+.carousel-thumb[aria-current="true"] {
+  opacity: 1;
+}
+
+.carousel-thumb[aria-current="true"] {
+  border-color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .carousel-thumb {
+    width: 84px;
+  }
 }
