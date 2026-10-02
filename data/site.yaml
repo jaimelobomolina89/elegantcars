@@ -147,24 +147,6 @@ cars:
     top_speed: 310
     price: 250000
 
-  - id: aston-martin-db12-volante
-    brand: aston-martin
-    type: cabrio
-    model: DB12 Volante
-    year: 2024
-    color: "#2f5d50"
-    tagline: "El super tourer, a cielo abierto."
-    description: >-
-      El DB12 descapotable combina un V8 biturbo con una capota de lona que
-      se pliega en segundos. Su confort de gran turismo y un habitáculo
-      acabado a mano lo hacen tan adecuado para largos viajes como para
-      carreteras de costa.
-    engine: "V8 biturbo de 4,0 L"
-    power: 680
-    acceleration: 3.7
-    top_speed: 325
-    price: 260000
-
   - id: lamborghini-revuelto
     brand: lamborghini
     type: coupe
@@ -199,7 +181,7 @@ cars:
     acceleration: 2.5
     to_speed: 322
     price: 
-    
+
     - id: BMW-m8
     brand: BMW
     type: coupe
