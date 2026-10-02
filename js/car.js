@@ -29,7 +29,15 @@ Elegant.boot(function (data) {
   var slot = document.getElementById("car-media-slot");
   slot.appendChild(Elegant.carMedia(car, "detail-media"));
   Elegant.findPhotos(car).then(function (photos) {
-    if (photos.length > 1) slot.replaceChildren(carousel(car, photos));
+    if (photos.length > 1) {
+      slot.replaceChildren(carousel(car, photos, data.credits));
+    } else if (photos.length === 1) {
+      var credit = Elegant.creditLine(data.credits, photos[0]);
+      if (credit) {
+        credit.classList.add("container");
+        slot.appendChild(credit);
+      }
+    }
   });
   document.getElementById("car-meta").textContent = [car.brandName, car.typeName, car.year]
     .filter(Boolean)
@@ -72,7 +80,7 @@ Elegant.boot(function (data) {
 
 // Accessible photo carousel: previous/next buttons, thumbnails, arrow keys and
 // swipe. It never auto-advances, so there is nothing to pause.
-function carousel(car, photos) {
+function carousel(car, photos, credits) {
   var index = 0;
 
   var root = document.createElement("section");
@@ -136,6 +144,9 @@ function carousel(car, photos) {
     image.src = photos[index];
     image.alt = Elegant.t("car.photo_alt", { car: car.fullName, n: index + 1, total: photos.length });
     counter.textContent = index + 1 + " / " + photos.length;
+    var line = Elegant.creditLine(credits, photos[index]);
+    if (line) credit.replaceChildren.apply(credit, Array.prototype.slice.call(line.childNodes));
+    else credit.replaceChildren();
     thumbButtons.forEach(function (b, j) {
       if (j === index) b.setAttribute("aria-current", "true");
       else b.removeAttribute("aria-current");
@@ -160,7 +171,11 @@ function carousel(car, photos) {
     if (Math.abs(dx) > 40) show(index + (dx < 0 ? 1 : -1));
   });
 
-  root.append(stage, thumbs);
+  // Photographer and licence of the current photo (from images/credits.yaml).
+  var credit = document.createElement("p");
+  credit.className = "photo-credit container";
+
+  root.append(stage, credit, thumbs);
   show(0);
   return root;
 }

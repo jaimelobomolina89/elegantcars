@@ -1,6 +1,7 @@
 // Helpers shared by every page: loading data/site.yaml, illustrations, formatting.
 (function () {
   var DATA_URL = "data/site.yaml";
+  var CREDITS_URL = "images/credits.yaml";
   var SVG_NS = "http://www.w3.org/2000/svg";
 
   // Side-profile silhouettes, keyed by car type slug. viewBox is 0 0 400 160.
@@ -467,11 +468,14 @@
         return Promise.all([
           loadYaml("lang/" + i18n.defaultLang + "/ui.yaml"),
           isDefault ? {} : loadYaml("lang/" + i18n.lang + "/ui.yaml", true),
-          isDefault ? {} : loadYaml("lang/" + i18n.lang + "/content.yaml", true)
+          isDefault ? {} : loadYaml("lang/" + i18n.lang + "/content.yaml", true),
+          loadYaml(CREDITS_URL, true)
         ]).then(function (files) {
           i18n.uiDefault = files[0];
           i18n.ui = isDefault ? files[0] : files[1];
-          return prepare(applyTranslations(raw, files[2]));
+          var data = prepare(applyTranslations(raw, files[2]));
+          data.credits = files[3];
+          return data;
         });
       })
       .then(function (data) {
@@ -483,6 +487,40 @@
         localizeLinks(document);
       })
       .catch(showError);
+  }
+
+  // A faded, decorative image fixed behind the whole page. Tries each
+  // candidate file in turn; if none exists nothing is shown.
+  function backdrop(candidates) {
+    var box = document.createElement("div");
+    box.className = "page-backdrop";
+    box.setAttribute("aria-hidden", "true");
+    var img = imageFromCandidates(candidates, function () {
+      box.remove();
+    });
+    img.alt = "";
+    box.appendChild(img);
+    document.body.prepend(box);
+  }
+
+  // "Photo: Author · CC BY-SA 4.0" for an image listed in images/credits.yaml,
+  // linking to the source and the licence. Returns null if it isn't listed.
+  function creditLine(credits, src) {
+    var entry = credits && credits[src];
+    if (!entry || !entry.author) return null;
+    var p = document.createElement("p");
+    p.className = "photo-credit";
+    var author = entry.source ? document.createElement("a") : document.createElement("span");
+    if (entry.source) author.href = entry.source;
+    author.textContent = entry.author;
+    p.append(t("credits.photo_by") + " ", author);
+    if (entry.license) {
+      var license = entry.license_url ? document.createElement("a") : document.createElement("span");
+      if (entry.license_url) license.href = entry.license_url;
+      license.textContent = entry.license;
+      p.append(" · ", license);
+    }
+    return p;
   }
 
   // Resolves to the first candidate file that exists, or null.
@@ -543,6 +581,8 @@
     findPhotos: findPhotos,
     imageCandidates: imageCandidates,
     imageFromCandidates: imageFromCandidates,
+    backdrop: backdrop,
+    creditLine: creditLine,
     carUrl: carUrl,
     formatNumber: formatNumber,
     formatPrice: formatPrice

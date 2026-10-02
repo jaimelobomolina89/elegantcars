@@ -4,10 +4,7 @@
 # Cars and types are keyed by their id / slug from data/site.yaml.
 
 site:
-  footer: >-
-    © elegantcars. Les caractéristiques sont données à titre indicatif et les
-    prix sont des prix de départ approximatifs. Les illustrations sont
-    stylisées et ne sont pas à l'échelle.
+  footer: "© elegantcars. Les caractéristiques sont données à titre indicatif et les prix sont des prix de départ approximatifs."
 
 home:
   eyebrow: La collection
@@ -16,9 +13,7 @@ home:
     Grand tourisme, berlines et SUV sélectionnés parmi les marques les plus
     prestigieuses au monde.
   button: Trouvez votre voiture
-  image_alt: >-
-    Illustration d'un coupé grand tourisme rouge sur une route dégagée au
-    coucher du soleil
+  image_alt: "Ferrari SF90 Spider rouge, vue de face"
 
 contact:
   title: Contactez-nous

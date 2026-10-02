@@ -4,9 +4,7 @@
 # Cars and types are keyed by their id / slug from data/site.yaml.
 
 site:
-  footer: >-
-    © elegantcars. Specifications are indicative and prices are approximate
-    starting prices. Illustrations are stylised and not to scale.
+  footer: "© elegantcars. Specifications are indicative and prices are approximate starting prices."
 
 home:
   eyebrow: The collection
@@ -15,7 +13,7 @@ home:
     Hand-picked grand tourers, saloons and SUVs from the world's most
     desirable marques.
   button: Find your car
-  image_alt: Illustration of a red grand-touring coupe on an open road at sunset
+  image_alt: "Red Ferrari SF90 Spider, front view"
 
 contact:
   title: Contact us

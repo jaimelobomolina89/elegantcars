@@ -20,6 +20,7 @@ page_titles:
   stock: Stock
   contact: Contact
   car_not_found: Voiture introuvable
+  credits: Crédits des images
 
 units:
   power: ch
@@ -81,6 +82,16 @@ contact:
   eyebrow: Contact
   phone: Téléphone
   email: E-mail
+
+credits:
+  eyebrow: Crédits
+  title: Crédits des images
+  intro: Les photos de ce site proviennent de Wikimedia Commons et sont utilisées selon leurs licences libres. Merci à leurs auteurs.
+  photo_by: "Photo :"
+  source: Voir l'original
+
+footer:
+  credits: Crédits des images
 
 errors:
   file_protocol: Le contenu ne peut pas se charger lorsque la page est ouverte comme fichier. Servez le dossier avec un serveur web (voir le README) et rechargez la page.

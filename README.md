@@ -11,6 +11,7 @@ A small static web portal for high-end cars. All content comes from a single YAM
 | `stock.html` | Cars matching the chosen filter; all cars when no filter is given | Home, Filters, Contact |
 | `car.html?id=<car id>` | Detail page for one car, with a photo carousel | Home, Filters, Stock, Contact |
 | `contact.html` | Phone number and email | Home, Filters, Stock |
+| `credits.html` | Author and licence of every photo (linked from every footer) | Home, Filters, Stock, Contact |
 
 The stock page reads its filters from the URL, for example `stock.html?brand=ferrari`, `stock.html?type=suv` or both combined: `stock.html?brand=porsche&type=coupe`. Clicking a car opens its detail page, and "Back to stock" returns to the same filtered list.
 
@@ -53,7 +54,7 @@ Everything is in **`data/site.yaml`**: homepage text and media, contact details,
 
 ## Images
 
-All images live in `images/`. The current files are placeholder illustrations. To use real ones, replace each file and keep its name:
+All images live in `images/`. The car photos, hero, brand backgrounds and type images are real, freely licensed photos from Wikimedia Commons (see **Image credits** below), except `images/types/suv.jpeg`, which is your own upload. To use your own photos, replace each file and keep its name:
 
 ```
 images/logo.png                    site logo on light backgrounds (.png, .jpg, .jpeg or .svg)
@@ -62,6 +63,7 @@ images/hero.jpg                    homepage background (wide, e.g. 1920×1080)
 images/brands/<brand slug>.png     brand logo on the filters page (.png, .jpg, .jpeg or .svg)
 images/types/<type slug>.png       car type image on the filters page (.png, .jpg, .jpeg or .svg)
 images/filters/<brand slug>.jpg    faded background of the stock page when filtered by that brand (.png, .jpg, .jpeg or .svg)
+images/filters/filters-page.jpg    faded background of the filters page (.png, .jpg, .jpeg or .svg)
 images/cars/<car id>/1.jpg         main photo: stock card and first slide
 images/cars/<car id>/2.jpg, 3.jpg… more carousel slides (16:9 or 16:10, e.g. 1600×900)
 ```
@@ -69,14 +71,22 @@ images/cars/<car id>/2.jpg, 3.jpg… more carousel slides (16:9 or 16:10, e.g. 1
 - **Site logo:** `images/logo.*` is used on light backgrounds and `images/logo-on-dark.*` on the homepage hero and in dark mode. Any of the four formats works. If only one exists it's used everywhere, and if neither exists the text logo is shown. The display height is set by `.logo-image` in `css/styles.css` (32px, 26px on phones).
 - **Car photos:** the detail page shows `1.jpg`, `2.jpg`, `3.jpg` and so on in order, stopping at the first missing number, so adding `4.jpg` adds a slide with no YAML change. To use other file names or a custom order, list them under `images:` on that car in the YAML. If a car has no photos, a drawn illustration of its car type in the car's `color` is shown instead.
 - **Brand logos:** the current files are the brands' official wordmarks (and the BMW roundel) from Wikimedia Commons. See `images/brands/CREDITS.md` for sources and trademark notes. The site looks for `<slug>.png`, then `.jpg`, `.jpeg` and `.svg`, so any of those formats works under the brand's slug. To use a different file name, set `logo:` on the brand in the YAML. If a logo is missing, the brand name is shown on its own.
-- **Car type images:** same rules as logos, in `images/types/` (for example `images/types/suv.png`). To use a different file name, set `image:` on the type in the YAML. If an image is missing, a drawn illustration of the type is shown. The current files are placeholders.
-- **Brand backgrounds:** when the stock is filtered by a brand (`stock.html?brand=ferrari`), `images/filters/<brand slug>` is shown faded behind the page. Any of the four formats works. To use another file name, set `background:` on the brand in the YAML. If there's no file, no background is shown. To make it stronger or subtler, change `--backdrop-opacity` in `css/styles.css`. The current files are placeholders.
+- **Car type images:** same rules as logos, in `images/types/` (for example `images/types/suv.png`). A `.png` wins over a `.jpg` with the same name, so delete the old file when you change format. To use a different file name, set `image:` on the type in the YAML. If an image is missing, a drawn illustration of the type is shown.
+- **Brand backgrounds:** when the stock is filtered by a brand (`stock.html?brand=ferrari`), `images/filters/<brand slug>` is shown faded behind the page. Any of the four formats works. To use another file name, set `background:` on the brand in the YAML. If there's no file, no background is shown. To make it stronger or subtler, change `--backdrop-opacity` in `css/styles.css`. Same idea on the filters page with `images/filters/filters-page.*`, or set `filters_background:` under `site:` in the YAML.
 - **Homepage video:** put an `.mp4` file in `images/` and set `home.video` in the YAML, for example `video: images/hero.mp4`. The hero image is used as the poster while the video loads, and visitors get a pause button.
+
+## Image credits
+
+Most photos carry Creative Commons licences (CC BY or CC BY-SA), which require crediting the photographer. `images/credits.yaml` lists the author, licence and source of every image. The site uses it to show a credit line under each carousel photo and to build `credits.html`, which is linked from every footer.
+
+- **Replacing a photo with your own:** delete or update its entry in `images/credits.yaml`, so the new photo isn't credited to someone else.
+- **Adding a freely licensed photo:** add an entry with at least `author`, plus `license`, `license_url` and `source` when you have them.
+- **CC BY-SA photos:** if you edit one (crop it, recolour it and so on), the edited file must also be shared under CC BY-SA.
 
 ## Structure
 
 ```
-index.html  filters.html  stock.html  car.html  contact.html
+index.html  filters.html  stock.html  car.html  contact.html  credits.html
 data/site.yaml          all content
 images/                 hero, brand logos, car type images and car photos
 css/styles.css          single stylesheet (light and dark mode)

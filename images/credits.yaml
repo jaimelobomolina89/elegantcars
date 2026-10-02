@@ -1,0 +1,287 @@
+# Image credits. The site shows these on the credits page (credits.html) and
+# under each photo in a car's carousel.
+#
+# Keyed by image path. When you replace an image with one of your own, delete
+# its entry here (or update it), so it isn't credited to the wrong person.
+# Fields: author, license, license_url, source (where the image comes from),
+# title (original file name). Only `author` is required.
+
+images/cars/ferrari-sf90-spider/1.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Ferrari_SF90_Spider_DSC_6998.jpg"
+  title: "Ferrari SF90 Spider DSC 6998.jpg"
+
+images/cars/ferrari-sf90-spider/2.jpg:
+  author: "Alexander-93"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Ferrari_SF90_Spider_IMG_9250.jpg"
+  title: "Ferrari SF90 Spider IMG 9250.jpg"
+
+images/cars/ferrari-sf90-spider/3.jpg:
+  author: "Alexander-93"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Ferrari_SF90_Spider_IMG_9574.jpg"
+  title: "Ferrari SF90 Spider IMG 9574.jpg"
+
+images/cars/ferrari-296-gts/1.jpg:
+  author: "Mathious Ier"
+  license: "CC0"
+  license_url: "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  source: "https://commons.wikimedia.org/wiki/File:Ferrari_296_GTS_(1)_kl.jpg"
+  title: "Ferrari 296 GTS (1) kl.jpg"
+
+images/cars/ferrari-296-gts/2.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Ferrari_296_GTS_DSC_6989.jpg"
+  title: "Ferrari 296 GTS DSC 6989.jpg"
+
+images/cars/ferrari-296-gts/3.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Ferrari_296_GTS_DSC_7001.jpg"
+  title: "Ferrari 296 GTS DSC 7001.jpg"
+
+images/cars/ferrari-purosangue/1.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Ferrari_Purosangue_DSC_7008.jpg"
+  title: "Ferrari Purosangue DSC 7008.jpg"
+
+images/cars/ferrari-purosangue/2.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Ferrari_Purosangue_DSC_7003.jpg"
+  title: "Ferrari Purosangue DSC 7003.jpg"
+
+images/cars/ferrari-purosangue/3.jpg:
+  author: "Alexander-93"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Ferrari_Purosangue_IMG_2488.jpg"
+  title: "Ferrari Purosangue IMG 2488.jpg"
+
+images/cars/aston-martin-dbx707/1.jpg:
+  author: "Alexander-93"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Aston_Martin_DBX707_AMR23_Edition_IMG_0007.jpg"
+  title: "Aston Martin DBX707 AMR23 Edition IMG 0007.jpg"
+
+images/cars/aston-martin-dbx707/2.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Aston_Martin_DBX707_1X7A6506.jpg"
+  title: "Aston Martin DBX707 1X7A6506.jpg"
+
+images/cars/aston-martin-dbx707/3.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Aston_Martin_DBX707_1X7A0203.jpg"
+  title: "Aston Martin DBX707 1X7A0203.jpg"
+
+images/cars/aston-martin-db12-volante/1.jpg:
+  author: "Alexander-93"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Aston_Martin_DB12_Volante_IMG_9314.jpg"
+  title: "Aston Martin DB12 Volante IMG 9314.jpg"
+
+images/cars/aston-martin-db12-volante/2.jpg:
+  author: "Alexander-93"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Aston_Martin_DB12_Volante_IMG_9319.jpg"
+  title: "Aston Martin DB12 Volante IMG 9319.jpg"
+
+images/cars/aston-martin-db12-volante/3.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Aston_Martin_DB12_Volante_DSC_7251.jpg"
+  title: "Aston Martin DB12 Volante DSC 7251.jpg"
+
+images/cars/lamborghini-revuelto/1.jpg:
+  author: "Alexander-93"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Lamborghini_Revuelto_IMG_0562.jpg"
+  title: "Lamborghini Revuelto IMG 0562.jpg"
+
+images/cars/lamborghini-revuelto/2.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Lamborghini_Revuelto_DSC_6985.jpg"
+  title: "Lamborghini Revuelto DSC 6985.jpg"
+
+images/cars/lamborghini-revuelto/3.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Lamborghini_Revuelto_DSC_6986.jpg"
+  title: "Lamborghini Revuelto DSC 6986.jpg"
+
+images/cars/lamborghini-urus-se/1.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Lamborghini_Urus_SE_DSC_9097.jpg"
+  title: "Lamborghini Urus SE DSC 9097.jpg"
+
+images/cars/lamborghini-urus-se/2.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Lamborghini_Urus_SE_DSC_8521.jpg"
+  title: "Lamborghini Urus SE DSC 8521.jpg"
+
+images/cars/lamborghini-urus-se/3.jpg:
+  author: "JustAnotherCarDesigner"
+  license: "CC0"
+  license_url: "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  source: "https://commons.wikimedia.org/wiki/File:Lamborghini_Urus_SE_001.jpg"
+  title: "Lamborghini Urus SE 001.jpg"
+
+images/cars/porsche-911-turbo-s/1.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Porsche_992_Turbo_S_1X7A6046.jpg"
+  title: "Porsche 992 Turbo S 1X7A6046.jpg"
+
+images/cars/porsche-911-turbo-s/2.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Porsche_992_Turbo_S_1X7A0363.jpg"
+  title: "Porsche 992 Turbo S 1X7A0363.jpg"
+
+images/cars/porsche-911-turbo-s/3.jpg:
+  author: "Alexander-93"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:2025_Porsche_992_Turbo_S_coupes_IAA_2025_DSC_1840.jpg"
+  title: "2025 Porsche 992 Turbo S coupes IAA 2025 DSC 1840.jpg"
+
+images/cars/porsche-panamera-turbo-s-e-hybrid/1.jpg:
+  author: "Alexandre Prevot from Nancy, France"
+  license: "CC BY-SA 2.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/2.0"
+  source: "https://commons.wikimedia.org/wiki/File:Porsche_Panamera_Turbo_S_E-Hybrid_(45775472954).jpg"
+  title: "Porsche Panamera Turbo S E-Hybrid (45775472954).jpg"
+
+images/cars/porsche-panamera-turbo-s-e-hybrid/2.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Porsche_971_Panamera_Turbo_S_E-Hybrid_IMG_2962.jpg"
+  title: "Porsche 971 Panamera Turbo S E-Hybrid IMG 2962.jpg"
+
+images/cars/porsche-panamera-turbo-s-e-hybrid/3.jpg:
+  author: "Alexandre Prévot from Nancy, France"
+  license: "CC BY-SA 2.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/2.0"
+  source: "https://commons.wikimedia.org/wiki/File:Porsche_Panamera_Turbo_S_E-Hybrid_(39454371354).jpg"
+  title: "Porsche Panamera Turbo S E-Hybrid (39454371354).jpg"
+
+images/cars/bmw-m5/1.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:BMW_M5_(G90)_MYLE_Festival_2025_DSC_9648.jpg"
+  title: "BMW M5 (G90) MYLE Festival 2025 DSC 9648.jpg"
+
+images/cars/bmw-m5/2.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:BMW_M5_(G90)_MYLE_Festival_2025_DSC_9764.jpg"
+  title: "BMW M5 (G90) MYLE Festival 2025 DSC 9764.jpg"
+
+images/cars/bmw-m5/3.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:BMW_M5_(G90)_MYLE_Festival_2025_DSC_9582.jpg"
+  title: "BMW M5 (G90) MYLE Festival 2025 DSC 9582.jpg"
+
+images/hero.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Ferrari_SF90_Spider_DSC_6998.jpg"
+  title: "Ferrari SF90 Spider DSC 6998.jpg"
+
+images/filters/ferrari.jpg:
+  author: "Calreyn88"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Ferrari_296_GTS_4.jpg"
+  title: "Ferrari 296 GTS 4.jpg"
+
+images/filters/aston-martin.jpg:
+  author: "Alexander-93"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Aston_Martin_DBX707_1X7A1670.jpg"
+  title: "Aston Martin DBX707 1X7A1670.jpg"
+
+images/filters/lamborghini.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Lamborghini_Urus_SE_DSC_8524.jpg"
+  title: "Lamborghini Urus SE DSC 8524.jpg"
+
+images/filters/porsche.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Porsche_992_Turbo_S_1X7A6046_(cropped).jpg"
+  title: "Porsche 992 Turbo S 1X7A6046 (cropped).jpg"
+
+images/filters/bmw.jpg:
+  author: "Damian B Oh"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:BMW_G90_M5_Brooklyn_Grey_Metallic_(1).jpg"
+  title: "BMW G90 M5 Brooklyn Grey Metallic (1).jpg"
+
+images/filters/filters-page.jpg:
+  author: "Alexander-93"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Lamborghini_Revuelto_Auto_Zuerich_2023_1X7A1103.jpg"
+  title: "Lamborghini Revuelto Auto Zuerich 2023 1X7A1103.jpg"
+
+images/types/berlina.jpg:
+  author: "OWS Photography"
+  license: "CC BY 4.0"
+  license_url: "https://creativecommons.org/licenses/by/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:BMW_M5_(G90)_Washington_DC_Metro_Area,_USA.jpg"
+  title: "BMW M5 (G90) Washington DC Metro Area, USA.jpg"
+
+images/types/cabrio.jpg:
+  author: "Alexander-93"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Aston_Martin_DB12_Volante_IMG_9323.jpg"
+  title: "Aston Martin DB12 Volante IMG 9323.jpg"
+
+images/types/coupe.jpg:
+  author: "Alexander Migl"
+  license: "CC BY-SA 4.0"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0"
+  source: "https://commons.wikimedia.org/wiki/File:Lamborghini_Revuelto_DSC_6985_(cropped).jpg"
+  title: "Lamborghini Revuelto DSC 6985 (cropped).jpg"

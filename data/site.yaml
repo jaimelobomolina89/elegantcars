@@ -27,10 +27,7 @@ languages:
       locale: fr-FR
 
 site:
-  footer: >-
-    © elegantcars. Las especificaciones son orientativas y los precios son
-    precios de partida aproximados. Las ilustraciones son estilizadas y no
-    están a escala.
+  footer: "© elegantcars. Las especificaciones son orientativas y los precios son precios de partida aproximados."
 
 home:
   eyebrow: "La colección"
@@ -43,9 +40,7 @@ home:
   # shown on its own, or used as the poster while a video loads.
   # To use a video, set `video` to an .mp4 path, e.g. images/hero.mp4.
   image: images/hero.jpg
-  image_alt: >-
-    Ilustración de un coupé gran turismo rojo en una carretera abierta al
-    atardecer
+  image_alt: "Ferrari SF90 Spider rojo, vista delantera"
   video: ""
 
 # Contact page. Replace these placeholder details with your real ones.

@@ -64,16 +64,7 @@ Elegant.boot(function (data) {
   // faded behind the page. Decorative only; nothing shows if there's no file.
   function renderBrandBackdrop() {
     var brand = data.brandBySlug[filters.brand];
-    if (!brand) return;
-    var backdrop = document.createElement("div");
-    backdrop.className = "page-backdrop";
-    backdrop.setAttribute("aria-hidden", "true");
-    var img = Elegant.imageFromCandidates(brand.backgrounds, function () {
-      backdrop.remove();
-    });
-    img.alt = "";
-    backdrop.appendChild(img);
-    document.body.prepend(backdrop);
+    if (brand) Elegant.backdrop(brand.backgrounds);
   }
 
   function card(car) {

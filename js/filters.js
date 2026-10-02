@@ -1,6 +1,10 @@
 // Filters page: one link per brand and per car type, each going to the stock
 // page with that filter applied.
 Elegant.boot(function (data) {
+  // Faded background: images/filters/filters-page.(png|jpg|jpeg|svg), or the
+  // file set as `filters_background` in site.yaml. Nothing shows if missing.
+  Elegant.backdrop(Elegant.imageCandidates(data.site.filters_background, "images/filters/filters-page"));
+
   function count(field, slug) {
     return data.cars.filter(function (car) {
       return car[field] === slug;

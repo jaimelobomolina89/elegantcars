@@ -20,6 +20,7 @@ page_titles:
   stock: Stock
   contact: Contact
   car_not_found: Car not found
+  credits: Image credits
 
 units:
   power: PS
@@ -81,6 +82,16 @@ contact:
   eyebrow: Contact
   phone: Phone
   email: Email
+
+credits:
+  eyebrow: Credits
+  title: Image credits
+  intro: The photos on this site come from Wikimedia Commons and are used under their free licences. Thanks to their authors.
+  photo_by: "Photo:"
+  source: View the original
+
+footer:
+  credits: Image credits
 
 errors:
   file_protocol: The site content can't load when the page is opened as a file. Serve the folder with a web server (see README) and reload.

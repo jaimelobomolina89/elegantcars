@@ -1087,3 +1087,64 @@ a:hover {
     height: 26px;
   }
 }
+
+/* Photo credits */
+
+.photo-credit {
+  margin: 8px auto 0;
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+}
+
+.photo-credit:empty {
+  display: none;
+}
+
+.photo-credit a {
+  color: inherit;
+}
+
+.credits-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.credit-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.credit-thumb {
+  flex: none;
+  width: 112px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 6px;
+  background: var(--surface-muted);
+}
+
+.credit-file {
+  margin: 0 0 4px;
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  overflow-wrap: anywhere;
+}
+
+.credit-item .photo-credit {
+  margin: 0 0 4px;
+  font-size: 0.875rem;
+  color: var(--ink);
+}
+
+.credit-source {
+  font-size: 0.8125rem;
+}
