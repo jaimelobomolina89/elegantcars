@@ -215,10 +215,10 @@ cars:
     top_speed: 350
     price: 500000
     
-  - id: porsche-911-turbo-s
+  - id: porsche-macan-s
     brand: porsche
-    type: coupe
-    model: 911 Turbo S
+    type: SUV
+    model: macan S
     year: 2025
     color: "#5a6470"
     tagline: "El hiperdeportivo para todos los días."
@@ -232,23 +232,7 @@ cars:
     top_speed: 322
     price: 270000
 
-  - id: porsche-panamera-turbo-s-e-hybrid
-    brand: porsche
-    type: berlina
-    model: Panamera Turbo S E-Hybrid
-    year: 2025
-    color: "#1f2a44"
-    tagline: "Confort de cuatro puertas, ritmo de deportivo."
-    description: >-
-      La berlina insignia de Porsche combina un V8 biturbo y un motor
-      eléctrico. Su suspensión activa le permite pasar de cómoda rutera de
-      largo recorrido a berlina deportiva capaz de rodar en circuito.
-    engine: "V8 biturbo de 4,0 L híbrido enchufable"
-    power: 782
-    acceleration: 2.9
-    top_speed: 325
-    price: 240000
-
+  
   - id: bmw-m8
     brand: bmw
     type: berlina
