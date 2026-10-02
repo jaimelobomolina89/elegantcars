@@ -201,20 +201,5 @@ cars:
     price: 270000
 
   
-  - id: bmw-m8
-    brand: bmw
-    type: berlina
-    model: M8
-    year: 2025
-    color: "#2d3e50"
-    tagline: "La superberlina original, ahora electrificada."
-    description: >-
-      La séptima generación del M5 añade un sistema híbrido enchufable a su
-      V8 biturbo, lo que lo convierte en el M5 más potente hasta la fecha.
-      Ofrece cinco plazas cómodas y recorre trayectos cortos solo con
-      energía eléctrica.
-    engine: "V8 biturbo de 4,4 L híbrido enchufable"
-    power: 727
-    acceleration: 3.5
-    top_speed: 305
-    price: 145000
+  
+  
