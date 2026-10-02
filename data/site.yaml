@@ -121,7 +121,7 @@ cars:
     power: 620
     acceleration: 3.4
     top_speed: 320
-    price: 230000
+    price: 445000
 
   - id: aston-martin-dbx707
     brand: aston-martin
@@ -138,7 +138,7 @@ cars:
     power: 707
     acceleration: 3.3
     top_speed: 310
-    price: 250000
+    price: 185000
 
   - id: lamborghini-revuelto
     brand: lamborghini
@@ -173,7 +173,7 @@ cars:
     power: 711
     acceleration: 2.5
     to_speed: 322
-    price: 
+    price: 82000
 
   - id: BMW-m8
     brand: BMW
@@ -190,7 +190,7 @@ cars:
     power: 711
     acceleration: 2.5
     to_speed: 322
-    price: 270000
+    price: 89000
 
   - id: BMW-x4
     brand: BMW
@@ -207,4 +207,4 @@ cars:
     power: 711
     acceleration: 2.5
     to_speed: 322
-    price: 270000
+    price: 23000
