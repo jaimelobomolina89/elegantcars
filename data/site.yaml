@@ -116,10 +116,7 @@ cars:
     color: "#8c1c13"
     tagline: "La nuova dolce vita, en versión gran turismo."
     description: >-
-      Un coupé 2+2 con motor delantero que cambia la agresividad por el
-      aplomo. Capó largo, flancos limpios y un habitáculo dividido en dos
-      cockpits hacen del Roma un Ferrari para cruzar continentes más que
-      para batir tiempos por vuelta.
+      
     engine: "V8 biturbo de 3,9 L"
     power: 620
     acceleration: 3.4
