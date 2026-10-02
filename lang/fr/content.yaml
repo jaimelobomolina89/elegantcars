@@ -1,0 +1,116 @@
+# French translations of the content in data/site.yaml.
+# Only text needs translating. Anything missing here (a whole car, or one field)
+# is shown in the default language (Spanish) from data/site.yaml.
+# Cars and types are keyed by their id / slug from data/site.yaml.
+
+site:
+  footer: >-
+    © elegantcars. Les caractéristiques sont données à titre indicatif et les
+    prix sont des prix de départ approximatifs. Les illustrations sont
+    stylisées et ne sont pas à l'échelle.
+
+home:
+  eyebrow: La collection
+  title: Des voitures qui définissent le luxe moderne
+  text: >-
+    Grand tourisme, berlines et SUV sélectionnés parmi les marques les plus
+    prestigieuses au monde.
+  button: Trouvez votre voiture
+  image_alt: >-
+    Illustration d'un coupé grand tourisme rouge sur une route dégagée au
+    coucher du soleil
+
+contact:
+  title: Contactez-nous
+  text: >-
+    Une voiture de notre stock vous intéresse, ou vous cherchez un modèle
+    précis ? Appelez-nous ou écrivez-nous et nous vous répondrons.
+
+types:
+  suv:
+    name: SUV
+  berlina:
+    name: Berline
+  cabrio:
+    name: Cabriolet
+  coupe:
+    name: Coupé
+
+cars:
+  ferrari-sf90-spider:
+    tagline: La nuova dolce vita, version grand tourisme.
+    description: >-
+      Un coupé 2+2 à moteur avant qui préfère l'élégance à l'agressivité. Long
+      capot, flancs épurés et habitacle divisé en deux cockpits font de la
+      Roma une Ferrari faite pour traverser les continents plutôt que pour
+      signer des chronos.
+    engine: V8 biturbo 3,9 L
+  ferrari-296-gts:
+    tagline: Six cylindres, un moteur électrique, le ciel pour horizon.
+    description: >-
+      La version à toit rigide escamotable de la berlinette hybride
+      rechargeable de Ferrari. Son V6 compact est associé à un moteur
+      électrique pour une réponse instantanée, et le toit se replie en
+      quatorze secondes.
+    engine: V6 biturbo 3,0 L hybride rechargeable
+  ferrari-purosangue:
+    tagline: Quatre portes, quatre places, douze cylindres.
+    description: >-
+      La première Ferrari à quatre portes et quatre places conserve un V12
+      atmosphérique à l'avant et des portes arrière antagonistes pour un accès
+      facile. Sa suspension active lui permet de rouler comme une limousine et
+      de virer comme une sportive.
+    engine: V12 atmosphérique 6,5 L
+  aston-martin-dbx707:
+    tagline: Le SUV à l'âme de sportive.
+    description: >-
+      Le SUV hautes performances d'Aston Martin tire son nom de ses 707 ch.
+      Une boîte à neuf rapports à embrayage humide, des freins
+      carbone-céramique et un châssis affûté le gardent agile malgré sa
+      taille.
+    engine: V8 biturbo 4,0 L
+  aston-martin-db12-volante:
+    tagline: Le super tourer, cheveux au vent.
+    description: >-
+      La DB12 découvrable associe un V8 biturbo à une capote en toile qui se
+      replie en quelques secondes. Son confort de grand tourisme et son
+      habitacle fini à la main la rendent aussi à l'aise sur les longs trajets
+      que sur les routes côtières.
+    engine: V8 biturbo 4,0 L
+  lamborghini-revuelto:
+    tagline: Le vaisseau amiral V12, électrifié.
+    description: >-
+      La première hybride hautes performances de Lamborghini conserve un V12
+      atmosphérique en son cœur et y ajoute trois moteurs électriques. Portes
+      en élytre et monocoque en carbone complètent une voiture taillée pour le
+      spectacle.
+    engine: V12 6,5 L hybride rechargeable
+  lamborghini-urus-se:
+    tagline: Le super SUV passe à l'hybride rechargeable.
+    description: >-
+      L'Urus hybride rechargeable associe un V8 biturbo à un moteur électrique
+      pour plus de puissance et un mode 100 % électrique pour rouler en
+      silence en ville. Il reste une vraie Lamborghini.
+    engine: V8 biturbo 4,0 L hybride rechargeable
+  porsche-911-turbo-s:
+    tagline: L'hypercar de tous les jours.
+    description: >-
+      La dernière 911 Turbo S ajoute une assistance hybride à son flat-six,
+      affûtant la réponse sans rien perdre de sa légendaire facilité d'usage.
+      La transmission intégrale transmet sa puissance par tous les temps.
+    engine: Flat-six biturbo 3,6 L hybride
+  porsche-panamera-turbo-s-e-hybrid:
+    tagline: Le confort de quatre portes, le rythme d'une sportive.
+    description: >-
+      La berline phare de Porsche associe un V8 biturbo et un moteur
+      électrique. Sa suspension active lui permet de passer de grande routière
+      confortable à berline sportive capable de rouler sur circuit.
+    engine: V8 biturbo 4,0 L hybride rechargeable
+  bmw-m5:
+    tagline: La super berline originelle, désormais électrifiée.
+    description: >-
+      La septième génération de la M5 ajoute un système hybride rechargeable à
+      son V8 biturbo, ce qui en fait la M5 la plus puissante à ce jour. Elle
+      accueille cinq personnes confortablement et parcourt les trajets courts
+      en mode 100 % électrique.
+    engine: V8 biturbo 4,4 L hybride rechargeable

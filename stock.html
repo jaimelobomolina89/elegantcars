@@ -1,32 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Stock · elegantcars</title>
-  <meta name="description" content="High-end cars currently in stock at elegantcars.">
+  <title>elegantcars</title>
+  <meta name="description" content="Coches de alta gama disponibles en elegantcars.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<body data-page-title="page_titles.stock">
+  <a class="skip-link" href="#main" data-i18n="skip_link"></a>
 
   <header class="site-header">
     <div class="container header-inner">
-      <span class="logo">elegant<span>cars</span></span>
-      <nav aria-label="Main">
-        <ul class="nav-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="filters.html">Filters</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+      <a class="logo" href="index.html" data-i18n-aria-label="logo_label">elegant<span>cars</span></a>
+      <div class="header-end">
+        <nav data-i18n-aria-label="nav.label">
+          <ul class="nav-list">
+            <li><a href="index.html" data-i18n="nav.home"></a></li>
+            <li><a href="filters.html" data-i18n="nav.filters"></a></li>
+            <li><a href="contact.html" data-i18n="nav.contact"></a></li>
+          </ul>
+        </nav>
+        <nav id="lang-switch" class="lang-switch"></nav>
+      </div>
     </div>
   </header>
 
   <main id="main" class="container">
     <div class="page-intro">
-      <p class="eyebrow">Stock</p>
-      <h1 id="stock-title">All cars</h1>
+      <p class="eyebrow" data-i18n="stock.eyebrow"></p>
+      <h1 id="stock-title"></h1>
       <div id="active-filters" class="active-filters" hidden></div>
       <p id="results-status" class="results-status"></p>
     </div>
@@ -36,10 +39,10 @@
     <div id="car-grid" class="car-grid"></div>
 
     <div id="empty-state" class="empty-state" hidden>
-      <p>No cars in stock match this selection.</p>
+      <p data-i18n="stock.empty"></p>
       <p class="empty-actions">
-        <a class="button" href="filters.html">Change filters</a>
-        <a class="button button-ghost" href="stock.html">See all cars</a>
+        <a class="button" href="filters.html" data-i18n="stock.change_filters"></a>
+        <a class="button button-ghost" href="stock.html" data-i18n="stock.see_all"></a>
       </p>
     </div>
   </main>

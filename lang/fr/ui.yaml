@@ -1,0 +1,87 @@
+# Interface text in French. Any key missing here falls back to lang/es/ui.yaml.
+# See lang/es/ui.yaml for how placeholders and plurals work.
+
+skip_link: Aller au contenu
+logo_label: elegantcars, accueil
+
+nav:
+  label: Principal
+  home: Accueil
+  filters: Filtres
+  stock: Stock
+  contact: Contact
+
+language:
+  label: Langue
+
+page_titles:
+  home: Voitures haut de gamme
+  filters: Filtres
+  stock: Stock
+  contact: Contact
+  car_not_found: Voiture introuvable
+
+units:
+  power: ch
+
+home:
+  play_video: Lire la vidéo d'arrière-plan
+  pause_video: Mettre en pause la vidéo d'arrière-plan
+
+filters:
+  eyebrow: Trouvez votre voiture
+  title: Filtres
+  intro: Choisissez une marque ou un type de voiture pour voir les voitures disponibles en stock.
+  by_brand: Par marque
+  by_type: Par type de voiture
+  in_stock:
+    one: "{count} voiture en stock"
+    other: "{count} voitures en stock"
+  see_all:
+    one: Voir la seule voiture
+    other: "Voir les {count} voitures"
+
+stock:
+  eyebrow: Stock
+  all_cars: Toutes les voitures
+  showing_all:
+    one: Affichage de la seule voiture
+    other: "Affichage des {count} voitures"
+  showing_some:
+    one: "Affichage de {count} sur {total} voiture"
+    other: "Affichage de {count} sur {total} voitures"
+  filter_brand: Marque
+  filter_type: Type de voiture
+  remove_filter: "Retirer le filtre {filter} : {value}"
+  empty: Aucune voiture en stock ne correspond à cette sélection.
+  change_filters: Modifier les filtres
+  see_all: Voir toutes les voitures
+
+car:
+  back: Retour au stock
+  specs: Caractéristiques
+  engine: Moteur
+  power: Puissance
+  acceleration: 0–100 km/h
+  top_speed: Vitesse maximale
+  type: Type de voiture
+  year: Année du modèle
+  price_from: "À partir de {price}"
+  more_brand: "Toutes les {brand}"
+  more_type: "Tous les modèles {type}"
+  not_found_title: Voiture introuvable
+  not_found_text: Cette voiture n'est plus en stock ou le lien est incorrect.
+  photos_label: "Photos de la {car}"
+  photo_alt: "{car}, photo {n} sur {total}"
+  previous_photo: Photo précédente
+  next_photo: Photo suivante
+  show_photo: "Afficher la photo {n} sur {total}"
+
+contact:
+  eyebrow: Contact
+  phone: Téléphone
+  email: E-mail
+
+errors:
+  file_protocol: Le contenu ne peut pas se charger lorsque la page est ouverte comme fichier. Servez le dossier avec un serveur web (voir le README) et rechargez la page.
+  load_failed: Désolé, le contenu du site n'a pas pu être chargé. Veuillez recharger la page.

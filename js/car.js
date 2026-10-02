@@ -19,11 +19,11 @@ Elegant.boot(function (data) {
 
   if (!car) {
     document.getElementById("car-not-found").hidden = false;
-    document.title = "Car not found · elegantcars";
+    Elegant.setTitle(Elegant.t("page_titles.car_not_found"));
     return;
   }
 
-  document.title = car.fullName + " · elegantcars";
+  Elegant.setTitle(car.fullName);
   // Show the main photo straight away, then upgrade to a carousel once we know
   // how many photos the car has.
   var slot = document.getElementById("car-media-slot");
@@ -41,29 +41,31 @@ Elegant.boot(function (data) {
 
   var specs = document.getElementById("car-specs");
   [
-    ["Engine", car.engine, ""],
-    ["Power", car.power, " PS"],
-    ["0–100 km/h", car.acceleration, " s"],
-    ["Top speed", car.top_speed, " km/h"],
-    ["Car type", car.typeName, ""],
-    ["Model year", car.year, ""]
+    ["car.engine", car.engine, ""],
+    ["car.power", car.power, " " + Elegant.t("units.power")],
+    ["car.acceleration", car.acceleration, " s"],
+    ["car.top_speed", car.top_speed, " km/h"],
+    ["car.type", car.typeName, ""],
+    ["car.year", car.year, ""]
   ].forEach(function (spec) {
     if (spec[1] == null || spec[1] === "") return;
     var wrap = document.createElement("div");
     var dt = document.createElement("dt");
     var dd = document.createElement("dd");
-    dt.textContent = spec[0];
-    dd.textContent = spec[1] + spec[2];
+    dt.textContent = Elegant.t(spec[0]);
+    // Numbers use the language's format (3,4 in Spanish); years and text don't.
+    var value = typeof spec[1] === "number" && spec[0] !== "car.year" ? Elegant.formatNumber(spec[1]) : spec[1];
+    dd.textContent = value + spec[2];
     wrap.append(dt, dd);
     specs.appendChild(wrap);
   });
 
   var moreBrand = document.getElementById("more-brand");
   moreBrand.href = "stock.html?brand=" + encodeURIComponent(car.brand);
-  moreBrand.textContent = "All " + car.brandName + " cars";
+  moreBrand.textContent = Elegant.t("car.more_brand", { brand: car.brandName });
   var moreType = document.getElementById("more-type");
   moreType.href = "stock.html?type=" + encodeURIComponent(car.type);
-  moreType.textContent = "All " + car.typeName + " models";
+  moreType.textContent = Elegant.t("car.more_type", { type: car.typeName });
 
   document.getElementById("car-detail").hidden = false;
 });
@@ -76,7 +78,7 @@ function carousel(car, photos) {
   var root = document.createElement("section");
   root.className = "carousel";
   root.setAttribute("aria-roledescription", "carousel");
-  root.setAttribute("aria-label", "Photos of " + car.fullName);
+  root.setAttribute("aria-label", Elegant.t("car.photos_label", { car: car.fullName }));
 
   var stage = document.createElement("div");
   stage.className = "carousel-stage";
@@ -100,8 +102,8 @@ function carousel(car, photos) {
     return b;
   }
 
-  var prev = button("carousel-prev", "Previous photo", "‹", -1);
-  var next = button("carousel-next", "Next photo", "›", 1);
+  var prev = button("carousel-prev", Elegant.t("car.previous_photo"), "‹", -1);
+  var next = button("carousel-next", Elegant.t("car.next_photo"), "›", 1);
 
   var counter = document.createElement("p");
   counter.className = "carousel-counter";
@@ -116,7 +118,7 @@ function carousel(car, photos) {
     var b = document.createElement("button");
     b.type = "button";
     b.className = "carousel-thumb";
-    b.setAttribute("aria-label", "Show photo " + (i + 1) + " of " + photos.length);
+    b.setAttribute("aria-label", Elegant.t("car.show_photo", { n: i + 1, total: photos.length }));
     var img = document.createElement("img");
     img.src = src;
     img.alt = "";
@@ -132,7 +134,7 @@ function carousel(car, photos) {
   function show(i) {
     index = (i + photos.length) % photos.length;
     image.src = photos[index];
-    image.alt = car.fullName + ", photo " + (index + 1) + " of " + photos.length;
+    image.alt = Elegant.t("car.photo_alt", { car: car.fullName, n: index + 1, total: photos.length });
     counter.textContent = index + 1 + " / " + photos.length;
     thumbButtons.forEach(function (b, j) {
       if (j === index) b.setAttribute("aria-current", "true");

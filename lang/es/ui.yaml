@@ -1,0 +1,94 @@
+# Interface text in Spanish, the default language.
+#
+# Every key must exist here. Other languages (lang/en/ui.yaml, lang/fr/ui.yaml)
+# only need the keys they translate; anything missing falls back to this file.
+#
+# {placeholders} are filled in by the site. Values with `one` / `other` are
+# plurals: `one` is used for a count of 1, `other` for everything else
+# (for stock.showing_some the count that matters is {total}).
+# Quote any value that starts with "{".
+
+skip_link: Saltar al contenido
+logo_label: elegantcars, inicio
+
+nav:
+  label: Principal
+  home: Inicio
+  filters: Filtros
+  stock: Stock
+  contact: Contacto
+
+language:
+  label: Idioma
+
+page_titles:
+  home: Coches de alta gama
+  filters: Filtros
+  stock: Stock
+  contact: Contacto
+  car_not_found: Coche no encontrado
+
+units:
+  power: CV
+
+home:
+  play_video: Reproducir vídeo de fondo
+  pause_video: Pausar vídeo de fondo
+
+filters:
+  eyebrow: Encuentra tu coche
+  title: Filtros
+  intro: Elige una marca o un tipo de coche para ver los coches disponibles en stock.
+  by_brand: Por marca
+  by_type: Por tipo de coche
+  in_stock:
+    one: "{count} coche en stock"
+    other: "{count} coches en stock"
+  see_all:
+    one: Ver el único coche
+    other: "Ver los {count} coches"
+
+stock:
+  eyebrow: Stock
+  all_cars: Todos los coches
+  showing_all:
+    one: Mostrando el único coche
+    other: "Mostrando los {count} coches"
+  showing_some:
+    one: "Mostrando {count} de {total} coche"
+    other: "Mostrando {count} de {total} coches"
+  filter_brand: Marca
+  filter_type: Tipo de coche
+  remove_filter: "Quitar el filtro {filter}: {value}"
+  empty: No hay coches en stock que coincidan con esta selección.
+  change_filters: Cambiar filtros
+  see_all: Ver todos los coches
+
+car:
+  back: Volver al stock
+  specs: Especificaciones
+  engine: Motor
+  power: Potencia
+  acceleration: 0–100 km/h
+  top_speed: Velocidad máxima
+  type: Tipo de coche
+  year: Año del modelo
+  price_from: "Desde {price}"
+  more_brand: "Todos los {brand}"
+  more_type: "Todos los modelos {type}"
+  not_found_title: Coche no encontrado
+  not_found_text: Este coche ya no está en stock o el enlace no es correcto.
+  photos_label: "Fotos del {car}"
+  photo_alt: "{car}, foto {n} de {total}"
+  previous_photo: Foto anterior
+  next_photo: Foto siguiente
+  show_photo: "Mostrar la foto {n} de {total}"
+
+contact:
+  eyebrow: Contacto
+  phone: Teléfono
+  email: Correo electrónico
+
+errors:
+  file_protocol: El contenido no se puede cargar abriendo la página como archivo. Sirve la carpeta con un servidor web (consulta el README) y vuelve a cargarla.
+  load_failed: No se ha podido cargar el contenido del sitio. Vuelve a cargar la página.

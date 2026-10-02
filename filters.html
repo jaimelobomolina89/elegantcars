@@ -1,48 +1,51 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Filters · elegantcars</title>
-  <meta name="description" content="Browse the elegantcars stock by brand or by car type.">
+  <title>elegantcars</title>
+  <meta name="description" content="Explora el stock de elegantcars por marca o por tipo de coche.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<body data-page-title="page_titles.filters">
+  <a class="skip-link" href="#main" data-i18n="skip_link"></a>
 
   <header class="site-header">
     <div class="container header-inner">
-      <span class="logo">elegant<span>cars</span></span>
-      <nav aria-label="Main">
-        <ul class="nav-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="stock.html">Stock</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+      <a class="logo" href="index.html" data-i18n-aria-label="logo_label">elegant<span>cars</span></a>
+      <div class="header-end">
+        <nav data-i18n-aria-label="nav.label">
+          <ul class="nav-list">
+            <li><a href="index.html" data-i18n="nav.home"></a></li>
+            <li><a href="stock.html" data-i18n="nav.stock"></a></li>
+            <li><a href="contact.html" data-i18n="nav.contact"></a></li>
+          </ul>
+        </nav>
+        <nav id="lang-switch" class="lang-switch"></nav>
+      </div>
     </div>
   </header>
 
   <main id="main" class="container">
     <div class="page-intro">
-      <p class="eyebrow">Find your car</p>
-      <h1>Filters</h1>
-      <p class="lede">Choose a brand or a car type to see the matching cars in stock.</p>
+      <p class="eyebrow" data-i18n="filters.eyebrow"></p>
+      <h1 data-i18n="filters.title"></h1>
+      <p class="lede" data-i18n="filters.intro"></p>
     </div>
 
     <p id="load-error" class="load-error" role="alert" hidden></p>
 
     <section class="filter-group" aria-labelledby="brand-heading">
-      <h2 id="brand-heading">By brand</h2>
+      <h2 id="brand-heading" data-i18n="filters.by_brand"></h2>
       <ul id="brand-tiles" class="tile-grid tile-grid-brands"></ul>
     </section>
 
     <section class="filter-group" aria-labelledby="type-heading">
-      <h2 id="type-heading">By car type</h2>
+      <h2 id="type-heading" data-i18n="filters.by_type"></h2>
       <ul id="type-tiles" class="tile-grid"></ul>
     </section>
 
-    <p class="all-link-wrap"><a id="all-link" href="stock.html" hidden>See all cars</a></p>
+    <p class="all-link-wrap"><a id="all-link" href="stock.html" hidden></a></p>
   </main>
 
   <footer class="site-footer">

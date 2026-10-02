@@ -1,0 +1,87 @@
+# Interface text in English. Any key missing here falls back to lang/es/ui.yaml.
+# See lang/es/ui.yaml for how placeholders and plurals work.
+
+skip_link: Skip to content
+logo_label: elegantcars, home
+
+nav:
+  label: Main
+  home: Home
+  filters: Filters
+  stock: Stock
+  contact: Contact
+
+language:
+  label: Language
+
+page_titles:
+  home: High-end cars
+  filters: Filters
+  stock: Stock
+  contact: Contact
+  car_not_found: Car not found
+
+units:
+  power: PS
+
+home:
+  play_video: Play background video
+  pause_video: Pause background video
+
+filters:
+  eyebrow: Find your car
+  title: Filters
+  intro: Choose a brand or a car type to see the matching cars in stock.
+  by_brand: By brand
+  by_type: By car type
+  in_stock:
+    one: "{count} car in stock"
+    other: "{count} cars in stock"
+  see_all:
+    one: See the only car
+    other: "See all {count} cars"
+
+stock:
+  eyebrow: Stock
+  all_cars: All cars
+  showing_all:
+    one: Showing the only car
+    other: "Showing all {count} cars"
+  showing_some:
+    one: "Showing {count} of {total} car"
+    other: "Showing {count} of {total} cars"
+  filter_brand: Brand
+  filter_type: Car type
+  remove_filter: "Remove {filter} filter: {value}"
+  empty: No cars in stock match this selection.
+  change_filters: Change filters
+  see_all: See all cars
+
+car:
+  back: Back to stock
+  specs: Specifications
+  engine: Engine
+  power: Power
+  acceleration: 0–100 km/h
+  top_speed: Top speed
+  type: Car type
+  year: Model year
+  price_from: "From {price}"
+  more_brand: "All {brand} cars"
+  more_type: "All {type} models"
+  not_found_title: Car not found
+  not_found_text: This car isn't in stock any more, or the link is wrong.
+  photos_label: "Photos of the {car}"
+  photo_alt: "{car}, photo {n} of {total}"
+  previous_photo: Previous photo
+  next_photo: Next photo
+  show_photo: "Show photo {n} of {total}"
+
+contact:
+  eyebrow: Contact
+  phone: Phone
+  email: Email
+
+errors:
+  file_protocol: The site content can't load when the page is opened as a file. Serve the folder with a web server (see README) and reload.
+  load_failed: Sorry, the site content couldn't be loaded. Please reload the page.

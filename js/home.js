@@ -6,7 +6,7 @@ Elegant.boot(function (data) {
   document.getElementById("hero-eyebrow").textContent = home.eyebrow || "";
   document.getElementById("hero-title").textContent = home.title || "";
   document.getElementById("hero-text").textContent = home.text || "";
-  document.getElementById("hero-button").textContent = home.button || "Find your car";
+  document.getElementById("hero-button").textContent = home.button || "";
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -26,7 +26,7 @@ Elegant.boot(function (data) {
 
     var toggle = document.getElementById("hero-toggle");
     var sync = function () {
-      toggle.textContent = video.paused ? "Play background video" : "Pause background video";
+      toggle.textContent = Elegant.t(video.paused ? "home.play_video" : "home.pause_video");
     };
     toggle.hidden = false;
     toggle.addEventListener("click", function () {

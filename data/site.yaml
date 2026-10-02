@@ -8,31 +8,52 @@
 #   - All images live in the images/ folder. To change one, replace the file
 #     and keep its name.
 
+# Languages. The default language's text is written in this file. Each other
+# language translates it in lang/<code>/content.yaml (stock text) and
+# lang/<code>/ui.yaml (menus, buttons, labels); anything not translated there
+# is shown in the default language. To add a language, add it here and create
+# its lang/<code>/ folder.
+languages:
+  default: es
+  available:
+    - code: es
+      name: Español
+      locale: es-ES
+    - code: en
+      name: English
+      locale: en-GB
+    - code: fr
+      name: Français
+      locale: fr-FR
+
 site:
   footer: >-
-    © elegantcars. Specifications are indicative and prices are approximate
-    starting prices. Illustrations are stylised and not to scale.
+    © elegantcars. Las especificaciones son orientativas y los precios son
+    precios de partida aproximados. Las ilustraciones son estilizadas y no
+    están a escala.
 
 home:
-  eyebrow: The collection
-  title: Cars that define modern luxury
+  eyebrow: "La colección"
+  title: "Coches que definen el lujo moderno"
   text: >-
-    Hand-picked grand tourers, saloons and SUVs from the world's most
-    desirable marques.
-  button: Find your car
+    Gran turismos, berlinas y SUV seleccionados de las marcas más deseadas
+    del mundo.
+  button: "Encuentra tu coche"
   # Background media for the homepage hero. `image` is always required: it is
   # shown on its own, or used as the poster while a video loads.
   # To use a video, set `video` to an .mp4 path, e.g. images/hero.mp4.
   image: images/hero.jpg
-  image_alt: Illustration of a red grand-touring coupe on an open road at sunset
+  image_alt: >-
+    Ilustración de un coupé gran turismo rojo en una carretera abierta al
+    atardecer
   video: ""
 
 # Contact page. Replace these placeholder details with your real ones.
 contact:
-  title: Contact us
+  title: "Contacta con nosotros"
   text: >-
-    Interested in a car from our stock, or looking for something specific?
-    Call or email us and we'll get back to you.
+    ¿Te interesa algún coche de nuestro stock o buscas algo concreto?
+    Llámanos o escríbenos y te responderemos.
   phone: "+1 555 0100"
   email: hello@example.com
 
@@ -41,6 +62,9 @@ contact:
 # .svg; they are tried in that order). No entry here is needed. To use another
 # file name, add `logo: images/brands/<file>` to the brand. If no logo file is
 # found, the brand name is shown on its own.
+# Backgrounds: when the stock is filtered by a brand, images/filters/<slug>.png
+# (or .jpg, .jpeg, .svg) is shown faded behind the page. To use another file
+# name, add `background: images/filters/<file>`. No file, no background.
 brands:
   - slug: ferrari
     name: Ferrari
@@ -59,13 +83,13 @@ brands:
 # type. If no image is found, a drawn illustration of the car type is shown.
 types:
   - slug: suv
-    name: SUV
+    name: "SUV"
   - slug: berlina
-    name: Berlina
+    name: "Berlina"
   - slug: cabrio
-    name: Cabrio
+    name: "Cabrio"
   - slug: coupe
-    name: Coupe
+    name: "Coupé"
 
 # The stock. Fields:
 #   id            unique, lowercase, no spaces
@@ -95,12 +119,13 @@ cars:
     model: SF90 spider
     year: 2024
     color: "#8c1c13"
-    tagline: La nuova dolce vita, in grand-touring form.
+    tagline: "La nuova dolce vita, en versión gran turismo."
     description: >-
-      A front-engined 2+2 coupe that trades aggression for poise. Long bonnet,
-      clean flanks and a cabin split into two cockpits make the Roma a Ferrari
-      for crossing continents rather than chasing lap times.
-    engine: 3.9 L twin-turbo V8
+      Un coupé 2+2 con motor delantero que cambia la agresividad por el
+      aplomo. Capó largo, flancos limpios y un habitáculo dividido en dos
+      cockpits hacen del Roma un Ferrari para cruzar continentes más que
+      para batir tiempos por vuelta.
+    engine: "V8 biturbo de 3,9 L"
     power: 620
     acceleration: 3.4
     top_speed: 320
@@ -112,12 +137,13 @@ cars:
     model: 296 GTS
     year: 2024
     color: "#b5121b"
-    tagline: Six cylinders, one electric motor, open sky.
+    tagline: "Seis cilindros, un motor eléctrico y el cielo abierto."
     description: >-
-      The retractable hard-top version of Ferrari's plug-in hybrid berlinetta.
-      Its compact V6 pairs with an electric motor for instant response, and the
-      roof folds away in fourteen seconds.
-    engine: 3.0 L twin-turbo V6 plug-in hybrid
+      La versión con techo rígido retráctil de la berlinetta híbrida
+      enchufable de Ferrari. Su compacto V6 se combina con un motor
+      eléctrico para una respuesta instantánea, y el techo se pliega en
+      catorce segundos.
+    engine: "V6 biturbo de 3,0 L híbrido enchufable"
     power: 830
     acceleration: 2.9
     top_speed: 330
@@ -129,12 +155,13 @@ cars:
     model: Purosangue
     year: 2024
     color: "#4a1410"
-    tagline: Four doors, four seats, twelve cylinders.
+    tagline: "Cuatro puertas, cuatro plazas, doce cilindros."
     description: >-
-      Ferrari's first four-door, four-seater keeps a naturally aspirated V12 up
-      front and rear-hinged back doors for easy access. Active suspension lets
-      it ride like a limousine and corner like a sports car.
-    engine: 6.5 L naturally aspirated V12
+      El primer Ferrari de cuatro puertas y cuatro plazas mantiene un V12
+      atmosférico delante y puertas traseras de apertura inversa para
+      facilitar el acceso. Su suspensión activa le permite rodar como una
+      limusina y tomar curvas como un deportivo.
+    engine: "V12 atmosférico de 6,5 L"
     power: 725
     acceleration: 3.3
     top_speed: 310
@@ -146,12 +173,12 @@ cars:
     model: DBX707
     year: 2024
     color: "#20473a"
-    tagline: The SUV with a sports car's soul.
+    tagline: "El SUV con alma de deportivo."
     description: >-
-      Aston Martin's performance SUV takes its name from its 707 PS output. A
-      wet-clutch nine-speed gearbox, carbon-ceramic brakes and sharpened chassis
-      tuning keep it agile despite its size.
-    engine: 4.0 L twin-turbo V8
+      El SUV de altas prestaciones de Aston Martin toma su nombre de sus 707
+      CV. Un cambio de nueve velocidades con embrague húmedo, frenos
+      carbocerámicos y un chasis afinado lo mantienen ágil pese a su tamaño.
+    engine: "V8 biturbo de 4,0 L"
     power: 707
     acceleration: 3.3
     top_speed: 310
@@ -163,12 +190,13 @@ cars:
     model: DB12 Volante
     year: 2024
     color: "#2f5d50"
-    tagline: The super tourer, with the roof down.
+    tagline: "El super tourer, a cielo abierto."
     description: >-
-      The open-top DB12 pairs a twin-turbo V8 with a fabric roof that folds in
-      seconds. Grand-touring comfort and a hand-finished cabin make it as suited
-      to long journeys as to coastal roads.
-    engine: 4.0 L twin-turbo V8
+      El DB12 descapotable combina un V8 biturbo con una capota de lona que
+      se pliega en segundos. Su confort de gran turismo y un habitáculo
+      acabado a mano lo hacen tan adecuado para largos viajes como para
+      carreteras de costa.
+    engine: "V8 biturbo de 4,0 L"
     power: 680
     acceleration: 3.7
     top_speed: 325
@@ -180,12 +208,13 @@ cars:
     model: Revuelto
     year: 2024
     color: "#c9a227"
-    tagline: The V12 flagship, electrified.
+    tagline: "El buque insignia V12, electrificado."
     description: >-
-      Lamborghini's first high-performance hybrid keeps a naturally aspirated
-      V12 at its heart and adds three electric motors. Scissor doors and a
-      carbon monocoque complete a car built for theatre.
-    engine: 6.5 L V12 plug-in hybrid
+      El primer híbrido de altas prestaciones de Lamborghini mantiene un V12
+      atmosférico como corazón y añade tres motores eléctricos. Puertas de
+      tijera y un monocasco de carbono completan un coche hecho para el
+      espectáculo.
+    engine: "V12 de 6,5 L híbrido enchufable"
     power: 1015
     acceleration: 2.5
     top_speed: 350
@@ -197,12 +226,13 @@ cars:
     model: Urus SE
     year: 2025
     color: "#3f6b2a"
-    tagline: The super SUV goes plug-in hybrid.
+    tagline: "El super SUV se pasa al híbrido enchufable."
     description: >-
-      The plug-in hybrid Urus combines a twin-turbo V8 with an electric motor
-      for more power and an electric-only mode for silent city driving. It is
-      still every inch a Lamborghini.
-    engine: 4.0 L twin-turbo V8 plug-in hybrid
+      El Urus híbrido enchufable combina un V8 biturbo con un motor
+      eléctrico para ofrecer más potencia y un modo eléctrico para circular
+      en silencio por la ciudad. Sigue siendo un Lamborghini de pies a
+      cabeza.
+    engine: "V8 biturbo de 4,0 L híbrido enchufable"
     power: 800
     acceleration: 3.4
     top_speed: 312
@@ -214,12 +244,12 @@ cars:
     model: 911 Turbo S
     year: 2025
     color: "#5a6470"
-    tagline: The everyday hypercar.
+    tagline: "El hiperdeportivo para todos los días."
     description: >-
-      The latest 911 Turbo S adds hybrid assistance to its flat-six, sharpening
-      response without diluting the car's legendary usability. All-wheel drive
-      puts its power down in any weather.
-    engine: 3.6 L twin-turbo flat-six hybrid
+      El último 911 Turbo S añade asistencia híbrida a su motor bóxer,
+      afinando la respuesta sin perder su legendaria facilidad de uso. La
+      tracción total transmite su potencia con cualquier tiempo.
+    engine: "Bóxer de seis cilindros biturbo de 3,6 L híbrido"
     power: 711
     acceleration: 2.5
     top_speed: 322
@@ -231,12 +261,12 @@ cars:
     model: Panamera Turbo S E-Hybrid
     year: 2025
     color: "#1f2a44"
-    tagline: Four-door comfort, sports car pace.
+    tagline: "Confort de cuatro puertas, ritmo de deportivo."
     description: >-
-      Porsche's flagship four-door combines a twin-turbo V8 and an electric
-      motor. Active suspension lets it switch between relaxed long-distance
-      cruiser and track-capable sports saloon.
-    engine: 4.0 L twin-turbo V8 plug-in hybrid
+      La berlina insignia de Porsche combina un V8 biturbo y un motor
+      eléctrico. Su suspensión activa le permite pasar de cómoda rutera de
+      largo recorrido a berlina deportiva capaz de rodar en circuito.
+    engine: "V8 biturbo de 4,0 L híbrido enchufable"
     power: 782
     acceleration: 2.9
     top_speed: 325
@@ -248,12 +278,13 @@ cars:
     model: M5
     year: 2025
     color: "#2d3e50"
-    tagline: The original super saloon, now electrified.
+    tagline: "La superberlina original, ahora electrificada."
     description: >-
-      The seventh-generation M5 adds a plug-in hybrid system to its twin-turbo
-      V8, making it the most powerful M5 yet. It seats five in comfort and
-      covers short trips on electric power alone.
-    engine: 4.4 L twin-turbo V8 plug-in hybrid
+      La séptima generación del M5 añade un sistema híbrido enchufable a su
+      V8 biturbo, lo que lo convierte en el M5 más potente hasta la fecha.
+      Ofrece cinco plazas cómodas y recorre trayectos cortos solo con
+      energía eléctrica.
+    engine: "V8 biturbo de 4,4 L híbrido enchufable"
     power: 727
     acceleration: 3.5
     top_speed: 305

@@ -16,16 +16,18 @@ Elegant.boot(function (data) {
   var brandName = filters.brand && (data.brandBySlug[filters.brand] || { name: filters.brand }).name;
   var typeName = filters.type && (data.typeBySlug[filters.type] || { name: filters.type }).name;
 
-  var title = [brandName, typeName].filter(Boolean).join(" · ") || "All cars";
+  var title = [brandName, typeName].filter(Boolean).join(" · ") || Elegant.t("stock.all_cars");
   document.getElementById("stock-title").textContent = title;
-  document.title = title + " · Stock · elegantcars";
+  Elegant.setTitle(title + " · " + Elegant.t("page_titles.stock"));
+
+  renderBrandBackdrop();
 
   renderActiveFilters();
 
   document.getElementById("results-status").textContent =
     matches.length === data.cars.length
-      ? "Showing all " + Elegant.plural(data.cars.length, "car")
-      : "Showing " + matches.length + " of " + Elegant.plural(data.cars.length, "car");
+      ? Elegant.t("stock.showing_all", { count: data.cars.length })
+      : Elegant.t("stock.showing_some", { count: matches.length, total: data.cars.length, plural: data.cars.length });
 
   var grid = document.getElementById("car-grid");
   grid.append.apply(grid, matches.map(card));
@@ -35,8 +37,8 @@ Elegant.boot(function (data) {
   function renderActiveFilters() {
     var box = document.getElementById("active-filters");
     [
-      ["brand", "Brand", brandName],
-      ["type", "Car type", typeName]
+      ["brand", Elegant.t("stock.filter_brand"), brandName],
+      ["type", Elegant.t("stock.filter_type"), typeName]
     ].forEach(function (entry) {
       if (!filters[entry[0]]) return;
       var rest = new URLSearchParams(params);
@@ -46,7 +48,7 @@ Elegant.boot(function (data) {
       var chip = document.createElement("a");
       chip.className = "chip";
       chip.href = "stock.html" + (query ? "?" + query : "");
-      chip.setAttribute("aria-label", "Remove " + entry[1].toLowerCase() + " filter: " + entry[2]);
+      chip.setAttribute("aria-label", Elegant.t("stock.remove_filter", { filter: entry[1].toLowerCase(), value: entry[2] }));
       chip.textContent = entry[1] + ": " + entry[2];
       var x = document.createElement("span");
       x.setAttribute("aria-hidden", "true");
@@ -56,6 +58,22 @@ Elegant.boot(function (data) {
       box.appendChild(chip);
     });
     box.hidden = !box.children.length;
+  }
+
+  // When filtering by brand, show images/filters/<brand>.(png|jpg|jpeg|svg)
+  // faded behind the page. Decorative only; nothing shows if there's no file.
+  function renderBrandBackdrop() {
+    var brand = data.brandBySlug[filters.brand];
+    if (!brand) return;
+    var backdrop = document.createElement("div");
+    backdrop.className = "page-backdrop";
+    backdrop.setAttribute("aria-hidden", "true");
+    var img = Elegant.imageFromCandidates(brand.backgrounds, function () {
+      backdrop.remove();
+    });
+    img.alt = "";
+    backdrop.appendChild(img);
+    document.body.prepend(backdrop);
   }
 
   function card(car) {
@@ -101,16 +119,16 @@ Elegant.boot(function (data) {
     var specs = document.createElement("dl");
     specs.className = "card-specs";
     [
-      ["Power", car.power, " PS"],
-      ["0–100 km/h", car.acceleration, " s"],
-      ["Top speed", car.top_speed, " km/h"]
+      [Elegant.t("car.power"), car.power, " " + Elegant.t("units.power")],
+      [Elegant.t("car.acceleration"), car.acceleration, " s"],
+      [Elegant.t("car.top_speed"), car.top_speed, " km/h"]
     ].forEach(function (spec) {
       if (spec[1] == null || spec[1] === "") return;
       var wrap = document.createElement("div");
       var dt = document.createElement("dt");
       var dd = document.createElement("dd");
       dt.textContent = spec[0];
-      dd.textContent = spec[1] + spec[2];
+      dd.textContent = Elegant.formatNumber(spec[1]) + spec[2];
       wrap.append(dt, dd);
       specs.appendChild(wrap);
     });

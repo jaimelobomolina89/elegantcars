@@ -1,18 +1,21 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>elegantcars · High-end cars</title>
-  <meta name="description" content="A curated stock of high-end cars from Ferrari, Aston Martin, Lamborghini, Porsche and BMW.">
+  <title>elegantcars</title>
+  <meta name="description" content="Stock seleccionado de coches de alta gama de Ferrari, Aston Martin, Lamborghini, Porsche y BMW.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="page-home">
-  <a class="skip-link" href="#main">Skip to content</a>
+<body class="page-home" data-page-title="page_titles.home">
+  <a class="skip-link" href="#main" data-i18n="skip_link"></a>
 
   <header class="site-header">
     <div class="container header-inner">
-      <span class="logo">elegant<span>cars</span></span>
+      <a class="logo" href="index.html" data-i18n-aria-label="logo_label" aria-current="page">elegant<span>cars</span></a>
+      <div class="header-end">
+        <nav id="lang-switch" class="lang-switch"></nav>
+      </div>
     </div>
   </header>
 
@@ -24,7 +27,7 @@
         <p id="hero-eyebrow" class="eyebrow"></p>
         <h1 id="hero-title"></h1>
         <p id="hero-text" class="lede"></p>
-        <a id="hero-button" class="button button-hero" href="filters.html">Find your car</a>
+        <a id="hero-button" class="button button-hero" href="filters.html"></a>
       </div>
       <button type="button" id="hero-toggle" class="hero-toggle" hidden></button>
     </section>

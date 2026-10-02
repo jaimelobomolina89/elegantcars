@@ -149,18 +149,177 @@
     return "car.html?id=" + encodeURIComponent(car.id);
   }
 
-  var priceFormat =new Intl.NumberFormat("en-GB", {
-    style: "currency",
-    currency: "EUR",
-    maximumFractionDigits: 0
-  });
+  // ---- Languages ----------------------------------------------------------
+  // The default language's content lives in data/site.yaml and its interface
+  // text in lang/<default>/ui.yaml. Other languages override keys from
+  // lang/<code>/content.yaml and lang/<code>/ui.yaml; anything they don't
+  // translate falls back to the default.
 
-  function formatPrice(value) {
-    return "From " + priceFormat.format(value);
+  var LANG_STORAGE_KEY = "elegantcars.lang";
+
+  var i18n = {
+    lang: "es",
+    defaultLang: "es",
+    locale: "es-ES",
+    languages: [],
+    ui: {},
+    uiDefault: {}
+  };
+
+  function lookup(obj, key) {
+    return key.split(".").reduce(function (node, part) {
+      return node && typeof node === "object" ? node[part] : undefined;
+    }, obj);
   }
 
-  function plural(count, word) {
-    return count + " " + word + (count === 1 ? "" : "s");
+  // Interface text for `key`, with {placeholders} filled from `vars`. Plural
+  // entries ({one, other}) are chosen by vars.plural, or vars.count.
+  function t(key, vars) {
+    vars = vars || {};
+    var value = lookup(i18n.ui, key);
+    if (value === undefined) value = lookup(i18n.uiDefault, key);
+    if (value === undefined) {
+      console.warn("Missing interface text: " + key);
+      return key;
+    }
+    if (value && typeof value === "object") {
+      var n = vars.plural !== undefined ? vars.plural : vars.count;
+      var form = new Intl.PluralRules(i18n.locale).select(Number(n) || 0);
+      value = value[form] !== undefined ? value[form] : value.other;
+    }
+    return String(value).replace(/\{(\w+)\}/g, function (match, name) {
+      return vars[name] !== undefined ? vars[name] : match;
+    });
+  }
+
+  function readStoredLang() {
+    try {
+      return window.localStorage.getItem(LANG_STORAGE_KEY);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function storeLang(code) {
+    try {
+      window.localStorage.setItem(LANG_STORAGE_KEY, code);
+    } catch (e) {
+      // Storage unavailable (private mode etc.): the ?lang= parameter still works.
+    }
+  }
+
+  // ?lang=<code> wins (and is remembered), then the remembered choice, then
+  // the default language.
+  function resolveLang(config) {
+    var codes = i18n.languages.map(function (l) {
+      return l.code;
+    });
+    var fromUrl = new URLSearchParams(window.location.search).get("lang");
+    if (fromUrl && codes.indexOf(fromUrl) !== -1) {
+      storeLang(fromUrl);
+      return fromUrl;
+    }
+    var stored = readStoredLang();
+    if (stored && codes.indexOf(stored) !== -1) return stored;
+    return config.default;
+  }
+
+  // Copies translated text onto the default-language content. Sections are
+  // merged key by key; brands, types and cars are matched by slug / id.
+  function applyTranslations(raw, tr) {
+    ["site", "home", "contact"].forEach(function (section) {
+      if (tr[section]) raw[section] = Object.assign(raw[section] || {}, tr[section]);
+    });
+    [
+      ["brands", "slug"],
+      ["types", "slug"],
+      ["cars", "id"]
+    ].forEach(function (pair) {
+      var overrides = tr[pair[0]];
+      if (!overrides) return;
+      (raw[pair[0]] || []).forEach(function (item) {
+        if (overrides[item[pair[1]]]) Object.assign(item, overrides[item[pair[1]]]);
+      });
+    });
+    return raw;
+  }
+
+  function formatNumber(value) {
+    return new Intl.NumberFormat(i18n.locale).format(value);
+  }
+
+  function formatPrice(value) {
+    var amount = new Intl.NumberFormat(i18n.locale, {
+      style: "currency",
+      currency: "EUR",
+      maximumFractionDigits: 0
+    }).format(value);
+    return t("car.price_from", { price: amount });
+  }
+
+  // Internal links keep the current language in the URL (so a shared link
+  // opens in the same language); in the default language the parameter is
+  // dropped to keep URLs clean.
+  function localizeLinks(root) {
+    (root || document).querySelectorAll("a[href]:not([data-lang-link])").forEach(function (a) {
+      var href = a.getAttribute("href");
+      if (/^([a-z]+:|#)/i.test(href)) return;
+      var url = new URL(href, window.location.href);
+      if (url.origin !== window.location.origin || !/\.html$/.test(url.pathname)) return;
+      if (i18n.lang === i18n.defaultLang) url.searchParams.delete("lang");
+      else url.searchParams.set("lang", i18n.lang);
+      a.setAttribute("href", url.pathname.split("/").pop() + url.search + url.hash);
+    });
+  }
+
+  // ES / EN / FR links in the header. Each one reloads the current page in
+  // that language; the visible code is followed by the language's own name for
+  // screen readers.
+  function renderLanguageSwitcher() {
+    var box = document.getElementById("lang-switch");
+    if (!box) return;
+    box.setAttribute("aria-label", t("language.label"));
+    var list = document.createElement("ul");
+    i18n.languages.forEach(function (language) {
+      var url = new URL(window.location.href);
+      url.searchParams.set("lang", language.code);
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = url.pathname.split("/").pop() + url.search + url.hash;
+      a.setAttribute("data-lang-link", "");
+      a.setAttribute("hreflang", language.code);
+      a.setAttribute("lang", language.code);
+      if (language.code === i18n.lang) a.setAttribute("aria-current", "true");
+      var code = document.createElement("span");
+      code.setAttribute("aria-hidden", "true");
+      code.textContent = language.code.toUpperCase();
+      var name = document.createElement("span");
+      name.className = "visually-hidden";
+      name.textContent = language.name || language.code;
+      a.append(code, name);
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+    box.replaceChildren(list);
+  }
+
+  // Fills the static text of the page: elements with data-i18n="key" get the
+  // text, data-i18n-aria-label="key" sets the aria-label, and the <body>'s
+  // data-page-title="key" sets the document title.
+  function translatePage() {
+    document.documentElement.lang = i18n.lang;
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      el.textContent = t(el.getAttribute("data-i18n"));
+    });
+    document.querySelectorAll("[data-i18n-aria-label]").forEach(function (el) {
+      el.setAttribute("aria-label", t(el.getAttribute("data-i18n-aria-label")));
+    });
+    var titleKey = document.body.getAttribute("data-page-title");
+    if (titleKey) setTitle(t(titleKey));
+  }
+
+  function setTitle(text) {
+    document.title = text + " · elegantcars";
   }
 
   // Index brands and types by slug and give every car display names, so pages
@@ -178,6 +337,7 @@
     data.contact = raw.contact || {};
     data.brands.forEach(function (b) {
       b.logos = imageCandidates(b.logo, "images/brands/" + b.slug);
+      b.backgrounds = imageCandidates(b.background, "images/filters/" + b.slug);
       data.brandBySlug[b.slug] = b;
     });
     data.types.forEach(function (t) {
@@ -204,38 +364,76 @@
     console.error(err);
     var box = document.getElementById("load-error");
     if (!box) return;
-    box.textContent =
-      window.location.protocol === "file:"
-        ? "The site content can't load when the page is opened as a file. Serve the folder with a web server (see README) and reload."
-        : "Sorry, the site content couldn't be loaded. Please reload the page.";
+    var key = window.location.protocol === "file:" ? "errors.file_protocol" : "errors.load_failed";
+    // If even the interface text failed to load, fall back to a fixed message.
+    var hasText = lookup(i18n.uiDefault, key) !== undefined;
+    box.textContent = hasText
+      ? t(key)
+      : "No se ha podido cargar el contenido. / The site content couldn't be loaded. Please serve the folder with a web server and reload.";
     box.hidden = false;
   }
 
-  // Loads the YAML, fills shared parts of the page, then hands the data to the
-  // page-specific callback.
+  // Fetches and parses a YAML file. Optional files (translations) resolve to
+  // an empty object when they don't exist.
+  function loadYaml(url, optional) {
+    return fetch(url, { cache: "no-cache" }).then(function (response) {
+      if (!response.ok) {
+        if (optional) return {};
+        throw new Error("HTTP " + response.status + " loading " + url);
+      }
+      return response.text().then(function (text) {
+        return window.jsyaml.load(text) || {};
+      });
+    });
+  }
+
+  // Loads site.yaml and the language files, translates the page, then hands
+  // the data to the page-specific callback.
   function boot(render) {
-    fetch(DATA_URL, { cache: "no-cache" })
-      .then(function (response) {
-        if (!response.ok) throw new Error("HTTP " + response.status + " loading " + DATA_URL);
-        return response.text();
+    loadYaml(DATA_URL)
+      .then(function (raw) {
+        var config = raw.languages || { default: "es", available: [{ code: "es", locale: "es-ES" }] };
+        i18n.languages = config.available || [];
+        i18n.defaultLang = config.default;
+        i18n.lang = resolveLang(config);
+        var current = i18n.languages.find(function (l) {
+          return l.code === i18n.lang;
+        });
+        i18n.locale = (current && current.locale) || i18n.lang;
+
+        var isDefault = i18n.lang === i18n.defaultLang;
+        return Promise.all([
+          loadYaml("lang/" + i18n.defaultLang + "/ui.yaml"),
+          isDefault ? {} : loadYaml("lang/" + i18n.lang + "/ui.yaml", true),
+          isDefault ? {} : loadYaml("lang/" + i18n.lang + "/content.yaml", true)
+        ]).then(function (files) {
+          i18n.uiDefault = files[0];
+          i18n.ui = isDefault ? files[0] : files[1];
+          return prepare(applyTranslations(raw, files[2]));
+        });
       })
-      .then(function (text) {
-        var data = prepare(window.jsyaml.load(text));
+      .then(function (data) {
+        translatePage();
+        renderLanguageSwitcher();
         var footer = document.getElementById("footer-note");
         if (footer && data.site.footer) footer.textContent = data.site.footer;
         render(data);
+        localizeLinks(document);
       })
       .catch(showError);
   }
 
   window.Elegant = {
     boot: boot,
+    t: t,
+    setTitle: setTitle,
     silhouette: silhouette,
     carMedia: carMedia,
     findPhotos: findPhotos,
+    imageCandidates: imageCandidates,
     imageFromCandidates: imageFromCandidates,
     carUrl: carUrl,
-    formatPrice: formatPrice,
-    plural: plural
+    formatNumber: formatNumber,
+    formatPrice: formatPrice
   };
 })();

@@ -26,7 +26,7 @@ Elegant.boot(function (data) {
 
     var meta = document.createElement("span");
     meta.className = "tile-count";
-    meta.textContent = Elegant.plural(total, "car") + " in stock";
+    meta.textContent = Elegant.t("filters.in_stock", { count: total });
 
     link.append(label, meta);
     li.appendChild(link);
@@ -80,6 +80,6 @@ Elegant.boot(function (data) {
   });
 
   var all = document.getElementById("all-link");
-  all.textContent = "See all " + Elegant.plural(data.cars.length, "car");
+  all.textContent = Elegant.t("filters.see_all", { count: data.cars.length });
   all.hidden = false;
 });
