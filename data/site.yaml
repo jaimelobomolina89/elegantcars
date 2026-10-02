@@ -201,7 +201,7 @@ cars:
     price: 
     - id: BMW-m8
     brand: BMW
-    type: coupé
+    type: coupe
     model: BMW
     year: 2025
     color: "#5a6470"
