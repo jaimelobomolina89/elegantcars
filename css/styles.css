@@ -953,51 +953,86 @@ a:hover {
   gap: 8px 24px;
 }
 
-.lang-switch ul {
-  display: flex;
-  gap: 2px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.lang-switch {
+  position: relative;
 }
 
-.lang-switch a {
+.lang-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 36px;
-  min-height: 32px;
-  padding: 4px 6px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.lang-toggle:hover,
+.lang-toggle[aria-expanded="true"] {
+  border-color: var(--line);
+  background: var(--surface);
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 20;
+  min-width: 160px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 28px var(--shadow);
+}
+
+.lang-menu[hidden] {
+  display: none;
+}
+
+.lang-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 40px;
+  padding: 8px 12px;
   border-radius: 6px;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--ink-muted);
+  color: var(--ink);
   text-decoration: none;
 }
 
-.lang-switch a:hover {
-  color: var(--ink);
+.lang-menu a:hover {
   background: var(--surface-muted);
 }
 
-.lang-switch a[aria-current="true"] {
+.lang-menu a[aria-current="true"] {
   color: var(--accent);
-  box-shadow: inset 0 -2px 0 var(--accent);
+  font-weight: 600;
 }
 
-.page-home .lang-switch a {
-  color: rgba(255, 255, 255, 0.85);
+.lang-menu a[aria-current="true"]::after {
+  content: "✓";
 }
 
-.page-home .lang-switch a:hover {
+.page-home .lang-toggle {
   color: #fff;
+}
+
+.page-home .lang-toggle:hover,
+.page-home .lang-toggle[aria-expanded="true"] {
+  border-color: rgba(255, 255, 255, 0.5);
   background: rgba(255, 255, 255, 0.12);
 }
 
-.page-home .lang-switch a[aria-current="true"] {
-  color: var(--gold);
-  box-shadow: inset 0 -2px 0 var(--gold);
+.page-home .lang-toggle:focus-visible {
+  outline-color: #fff;
 }
 
 /* Stock page: faded brand image behind the page when filtering by brand.
@@ -1026,4 +1061,29 @@ a:hover {
   max-width: none;
   object-fit: cover;
   opacity: var(--backdrop-opacity);
+}
+
+/* Site logo image (images/logo.*, images/logo-on-dark.*). Change the height
+   here to resize it; the width follows the image. */
+
+.logo-pending .logo-text {
+  visibility: hidden;
+}
+
+.logo picture {
+  display: block;
+}
+
+.logo-image {
+  display: block;
+  height: 32px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+}
+
+@media (max-width: 480px) {
+  .logo-image {
+    height: 26px;
+  }
 }

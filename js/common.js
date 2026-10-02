@@ -272,14 +272,55 @@
     });
   }
 
-  // ES / EN / FR links in the header. Each one reloads the current page in
-  // that language; the visible code is followed by the language's own name for
-  // screen readers.
+  var GLOBE_PATHS = [
+    "M12 2a10 10 0 1 0 0 20a10 10 0 1 0 0-20Z",
+    "M2 12h20",
+    "M12 2c2.8 2.7 4.2 6.1 4.2 10s-1.4 7.3-4.2 10c-2.8-2.7-4.2-6.1-4.2-10S9.2 4.7 12 2Z"
+  ];
+
+  function globeIcon() {
+    var svg = svgEl("svg", {
+      viewBox: "0 0 24 24",
+      width: 22,
+      height: 22,
+      fill: "none",
+      stroke: "currentColor",
+      "stroke-width": 1.6,
+      "stroke-linecap": "round",
+      "aria-hidden": "true",
+      focusable: "false"
+    });
+    GLOBE_PATHS.forEach(function (d) {
+      svg.appendChild(svgEl("path", { d: d }));
+    });
+    return svg;
+  }
+
+  // Globe button in the header that opens a list of every language (a
+  // disclosure menu). Each entry reloads the current page in that language.
+  // It closes with Escape, by clicking outside, or when focus leaves it.
   function renderLanguageSwitcher() {
     var box = document.getElementById("lang-switch");
     if (!box) return;
     box.setAttribute("aria-label", t("language.label"));
+
+    var current = i18n.languages.find(function (l) {
+      return l.code === i18n.lang;
+    });
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "lang-toggle";
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-controls", "lang-menu");
+    var label = document.createElement("span");
+    label.className = "visually-hidden";
+    label.textContent = t("language.label") + ": " + ((current && current.name) || i18n.lang);
+    button.append(globeIcon(), label);
+
     var list = document.createElement("ul");
+    list.id = "lang-menu";
+    list.className = "lang-menu";
+    list.hidden = true;
     i18n.languages.forEach(function (language) {
       var url = new URL(window.location.href);
       url.searchParams.set("lang", language.code);
@@ -289,18 +330,39 @@
       a.setAttribute("data-lang-link", "");
       a.setAttribute("hreflang", language.code);
       a.setAttribute("lang", language.code);
+      a.textContent = language.name || language.code;
       if (language.code === i18n.lang) a.setAttribute("aria-current", "true");
-      var code = document.createElement("span");
-      code.setAttribute("aria-hidden", "true");
-      code.textContent = language.code.toUpperCase();
-      var name = document.createElement("span");
-      name.className = "visually-hidden";
-      name.textContent = language.name || language.code;
-      a.append(code, name);
       li.appendChild(a);
       list.appendChild(li);
     });
-    box.replaceChildren(list);
+
+    function setOpen(open) {
+      list.hidden = !open;
+      button.setAttribute("aria-expanded", String(open));
+    }
+
+    button.addEventListener("click", function () {
+      var open = list.hidden;
+      setOpen(open);
+      if (open) {
+        var active = list.querySelector('[aria-current="true"]') || list.querySelector("a");
+        if (active) active.focus();
+      }
+    });
+    box.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !list.hidden) {
+        setOpen(false);
+        button.focus();
+      }
+    });
+    box.addEventListener("focusout", function (event) {
+      if (!box.contains(event.relatedTarget)) setOpen(false);
+    });
+    document.addEventListener("click", function (event) {
+      if (!box.contains(event.target)) setOpen(false);
+    });
+
+    box.replaceChildren(button, list);
   }
 
   // Fills the static text of the page: elements with data-i18n="key" get the
@@ -422,6 +484,55 @@
       })
       .catch(showError);
   }
+
+  // Resolves to the first candidate file that exists, or null.
+  function firstExisting(candidates) {
+    var queue = candidates.slice();
+    function next() {
+      if (!queue.length) return Promise.resolve(null);
+      var src = queue.shift();
+      return loads(src).then(function (ok) {
+        return ok ? src : next();
+      });
+    }
+    return next();
+  }
+
+  // Site logo: images/logo.* for light backgrounds and images/logo-on-dark.*
+  // for dark ones (the homepage hero, and dark mode on other pages). If neither
+  // file exists, the text logo in the HTML is kept. The text is hidden until we
+  // know, so the header doesn't flicker between the two.
+  function setupLogo() {
+    var link = document.querySelector(".logo");
+    if (!link) return;
+    var onDark = document.body.classList.contains("page-home");
+    Promise.all([
+      firstExisting(imageCandidates(null, "images/logo")),
+      firstExisting(imageCandidates(null, "images/logo-on-dark"))
+    ]).then(function (found) {
+      var light = found[0];
+      var dark = found[1];
+      var main = onDark ? dark || light : light || dark;
+      if (main) {
+        var picture = document.createElement("picture");
+        if (!onDark && light && dark) {
+          var source = document.createElement("source");
+          source.media = "(prefers-color-scheme: dark)";
+          source.srcset = dark;
+          picture.appendChild(source);
+        }
+        var img = document.createElement("img");
+        img.src = main;
+        img.alt = "elegantcars";
+        img.className = "logo-image";
+        picture.appendChild(img);
+        link.replaceChildren(picture);
+      }
+      link.classList.remove("logo-pending");
+    });
+  }
+
+  setupLogo();
 
   window.Elegant = {
     boot: boot,

@@ -26,7 +26,7 @@ Then open <http://localhost:8000> and press Ctrl+C in the terminal to stop the s
 
 ## Languages
 
-The site is in **Spanish (default)**, **English** and **French**. Visitors switch with the ES / EN / FR links in the header. The choice is added to the address (`?lang=en`) so links can be shared, and the browser remembers it. New visitors see Spanish.
+The site is in **Spanish (default)**, **English** and **French**. Visitors switch with the globe button in the header, which opens a list of all languages. The choice is added to the address (`?lang=en`) so links can be shared, and the browser remembers it. New visitors see Spanish.
 
 ```
 data/site.yaml          content in Spanish (the default language)
@@ -56,6 +56,8 @@ Everything is in **`data/site.yaml`**: homepage text and media, contact details,
 All images live in `images/`. The current files are placeholder illustrations. To use real ones, replace each file and keep its name:
 
 ```
+images/logo.png                    site logo on light backgrounds (.png, .jpg, .jpeg or .svg)
+images/logo-on-dark.png            site logo on dark backgrounds: homepage hero and dark mode
 images/hero.jpg                    homepage background (wide, e.g. 1920×1080)
 images/brands/<brand slug>.png     brand logo on the filters page (.png, .jpg, .jpeg or .svg)
 images/types/<type slug>.png       car type image on the filters page (.png, .jpg, .jpeg or .svg)
@@ -64,6 +66,7 @@ images/cars/<car id>/1.jpg         main photo: stock card and first slide
 images/cars/<car id>/2.jpg, 3.jpg… more carousel slides (16:9 or 16:10, e.g. 1600×900)
 ```
 
+- **Site logo:** `images/logo.*` is used on light backgrounds and `images/logo-on-dark.*` on the homepage hero and in dark mode. Any of the four formats works. If only one exists it's used everywhere, and if neither exists the text logo is shown. The display height is set by `.logo-image` in `css/styles.css` (32px, 26px on phones).
 - **Car photos:** the detail page shows `1.jpg`, `2.jpg`, `3.jpg` and so on in order, stopping at the first missing number, so adding `4.jpg` adds a slide with no YAML change. To use other file names or a custom order, list them under `images:` on that car in the YAML. If a car has no photos, a drawn illustration of its car type in the car's `color` is shown instead.
 - **Brand logos:** the current files are the brands' official wordmarks (and the BMW roundel) from Wikimedia Commons. See `images/brands/CREDITS.md` for sources and trademark notes. The site looks for `<slug>.png`, then `.jpg`, `.jpeg` and `.svg`, so any of those formats works under the brand's slug. To use a different file name, set `logo:` on the brand in the YAML. If a logo is missing, the brand name is shown on its own.
 - **Car type images:** same rules as logos, in `images/types/` (for example `images/types/suv.png`). To use a different file name, set `image:` on the type in the YAML. If an image is missing, a drawn illustration of the type is shown. The current files are placeholders.
