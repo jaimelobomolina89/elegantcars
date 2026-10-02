@@ -115,8 +115,6 @@ cars:
     year: 2024
     color: "#8c1c13"
     tagline: "La nuova dolce vita, en versión gran turismo."
-    description: >-
-      
     engine: "V8 biturbo de 3,9 L"
     power: 620
     acceleration: 3.4
@@ -160,7 +158,7 @@ cars:
     
   - id: porsche-macan-s
     brand: porsche
-    type: SUV
+    type: suv
     model: macan S
     year: 2025
     color: "#5a6470"
@@ -172,11 +170,11 @@ cars:
     engine: "Bóxer de seis cilindros biturbo de 3,6 L híbrido"
     power: 711
     acceleration: 2.5
-    to_speed: 322
+    top_speed: 322
     price: 82000
 
   - id: BMW-m8
-    brand: BMW
+    brand: bmw
     type: coupe
     model: BMW
     year: 2025
@@ -189,12 +187,12 @@ cars:
     engine: "Bóxer de seis cilindros biturbo de 3,6 L híbrido"
     power: 711
     acceleration: 2.5
-    to_speed: 322
+    top_speed: 322
     price: 89000
 
   - id: BMW-x4
-    brand: BMW
-    type: SUV
+    brand: bmw
+    type: suv
     model: BMW x4
     year: 2025
     color: "#5a6470"
@@ -206,5 +204,5 @@ cars:
     engine: "Bóxer de seis cilindros biturbo de 3,6 L híbrido"
     power: 711
     acceleration: 2.5
-    to_speed: 322
+    top_speed: 322
     price: 24000

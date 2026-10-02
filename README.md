@@ -52,6 +52,8 @@ Everything is in **`data/site.yaml`**: homepage text and media, contact details,
 - **Add a brand or car type:** add it to `brands:` or `types:`. It appears on the filters page automatically.
 - **Change contact details:** edit `contact:`. The phone number and email currently there are placeholders.
 
+**Automatic check:** every push runs a check on the YAML files (GitHub → Actions tab). If a file has an error, such as broken indentation, a field left half-deleted, or a `brand`/`type` that doesn't match a slug, the site is **not** published and the live site keeps the last good version. Open the failed run to see the file, line and what to fix. Warnings, such as leftover translations or credits for deleted images, don't block publishing. To run the same check locally: `node .github/scripts/validate-yaml.js`.
+
 ## Images
 
 All images live in `images/`. The car photos, hero, brand backgrounds and type images are real, freely licensed photos from Wikimedia Commons (see **Image credits** below), except `images/types/suv.jpeg`, which is your own upload. To use your own photos, replace each file and keep its name:
@@ -95,3 +97,7 @@ js/home.js  js/filters.js  js/stock.js  js/car.js  js/contact.js   one per page
 lang/<code>/            translations (see Languages)
 js/vendor/js-yaml/      YAML parser (js-yaml 5.4.2, MIT licence)
 ```
+
+## DNS
+
+DNS is at https://server.moyseafood.com:3333/evo/login
