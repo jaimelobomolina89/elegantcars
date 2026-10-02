@@ -197,9 +197,40 @@ cars:
     engine: "Bóxer de seis cilindros biturbo de 3,6 L híbrido"
     power: 711
     acceleration: 2.5
-    top_speed: 322
+    to_speed: 322
+    price: 
+    - id: BMW-m8
+    brand: BMW
+    type: coupé
+    model: BMW
+    year: 2025
+    color: "#5a6470"
+    tagline: "El hiperdeportivo para todos los días."
+    description: >-
+      El último 911 Turbo S añade asistencia híbrida a su motor bóxer,
+      afinando la respuesta sin perder su legendaria facilidad de uso. La
+      tracción total transmite su potencia con cualquier tiempo.
+    engine: "Bóxer de seis cilindros biturbo de 3,6 L híbrido"
+    power: 711
+    acceleration: 2.5
+    to_speed: 322
     price: 270000
 
   
   
-  
+  - id: BMW-x4
+    brand: BMW
+    type: SUV
+    model: BMW x4
+    year: 2025
+    color: "#5a6470"
+    tagline: "El hiperdeportivo para todos los días."
+    description: >-
+      El último 911 Turbo S añade asistencia híbrida a su motor bóxer,
+      afinando la respuesta sin perder su legendaria facilidad de uso. La
+      tracción total transmite su potencia con cualquier tiempo.
+    engine: "Bóxer de seis cilindros biturbo de 3,6 L híbrido"
+    power: 711
+    acceleration: 2.5
+    to_speed: 322
+    price: 270000
