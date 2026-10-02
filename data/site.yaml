@@ -126,23 +126,7 @@ cars:
     top_speed: 320
     price: 230000
 
-  - id: ferrari-296-gts
-    brand: ferrari
-    type: cabrio
-    model: 296 GTS
-    year: 2024
-    color: "#b5121b"
-    tagline: "Seis cilindros, un motor eléctrico y el cielo abierto."
-    description: >-
-      La versión con techo rígido retráctil de la berlinetta híbrida
-      enchufable de Ferrari. Su compacto V6 se combina con un motor
-      eléctrico para una respuesta instantánea, y el techo se pliega en
-      catorce segundos.
-    engine: "V6 biturbo de 3,0 L híbrido enchufable"
-    power: 830
-    acceleration: 2.9
-    top_speed: 330
-    price: 300000
+  
 
   
 
