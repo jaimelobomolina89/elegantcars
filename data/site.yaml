@@ -272,10 +272,10 @@ cars:
     top_speed: 325
     price: 240000
 
-  - id: bmw-m5
+  - id: bmw-m8
     brand: bmw
     type: berlina
-    model: M5
+    model: M8
     year: 2025
     color: "#2d3e50"
     tagline: "La superberlina original, ahora electrificada."
