@@ -162,15 +162,13 @@ cars:
     model: macan S
     year: 2025
     color: "#5a6470"
-    tagline: "El hiperdeportivo para todos los días."
+    tagline: "SUV deportivo de tamaño medio que combina la practicidad de un SUV con el carácter y las prestaciones propias de Porsche."
     description: >-
-      El último 911 Turbo S añade asistencia híbrida a su motor bóxer,
-      afinando la respuesta sin perder su legendaria facilidad de uso. La
-      tracción total transmite su potencia con cualquier tiempo.
-    engine: "Bóxer de seis cilindros biturbo de 3,6 L híbrido"
-    power: 711
-    acceleration: 2.5
-    top_speed: 322
+     Un SUV premium de altas prestaciones que combina un motor potente, tracción integral, cambio PDK y un comportamiento deportivo con suficiente comodidad y practicidad para utilizarlo todos los días.
+    engine: motor v6 biturbo de gasolina
+    power: 380cv
+    acceleration: 4.6
+    top_speed: 260
     price: 82000
 
   - id: BMW-m8
