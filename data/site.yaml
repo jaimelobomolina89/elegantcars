@@ -182,7 +182,7 @@ cars:
       El M8 Competition es difícil de clasificar,no es exactamente un deportivo puro como un Porsche 911. Tampoco es simplemente una berlina de lujo, ni  es un GT tradicional.Es una mezcla de los tres:  Gran turismo + deportivo + coche de lujo.Puedes recorrer cientos de kilómetros con él con bastante comodidad y, al mismo tiempo, tener un automóvil capaz de acelerar de 0 a 100 km/h en alrededor de 3,2 segundos
     engine: "V8 TwinPower Turbo de 4,4 litros"
     power: 625
-    acceleration: 3,2
+    acceleration: 3.2
     top_speed: 305
     price: 89000
 
