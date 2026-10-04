@@ -166,7 +166,7 @@ cars:
     description: >-
      Un SUV premium de altas prestaciones que combina un motor potente, tracción integral, cambio PDK y un comportamiento deportivo con suficiente comodidad y practicidad para utilizarlo todos los días.
     engine: motor v6 biturbo de gasolina
-    power: 380cv
+    power: 380
     acceleration: 4.6
     top_speed: 260
     price: 82000
