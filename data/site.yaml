@@ -114,11 +114,11 @@ cars:
     model: SF90 spider
     year: 2024
     color: "#8c1c13"
-    tagline: "La nuova dolce vita, en versión gran turismo."
-    engine: "V8 biturbo de 3,9 L"
-    power: 620
-    acceleration: 3.4
-    top_speed: 320
+    tagline: "El Ferrari SF90 Spider es un superdeportivo descapotable que combina la brutalidad de un V8 Ferrari de 780 CV con la aceleración instantánea de tres motores eléctricos, alcanzando 1.000 CV y 340 km/h sin renunciar al lujo y a la posibilidad de conducir a cielo abierto"
+    engine: "V8 biturbo de 4,0 L con tres motores electricos"
+    power: 1000
+    acceleration: 2.5
+    top_speed: 340
     price: 445000
 
   - id: aston-martin-dbx707
