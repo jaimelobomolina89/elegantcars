@@ -174,7 +174,7 @@ cars:
     top_speed: 260
     price: 82000
 
-  - id: BMW-m8
+  - id: bmw-m8
     brand: bmw
     type: coupe
     model: m8
@@ -189,7 +189,7 @@ cars:
     top_speed: 305
     price: 89000
 
-  - id: BMW-x4
+  - id: bmw-x4
     brand: bmw
     type: suv
     model:  x4
