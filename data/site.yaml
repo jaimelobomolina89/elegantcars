@@ -110,7 +110,7 @@ types:
 cars:
   - id: ferrari-sf90-spider
     brand: ferrari
-    type: coupe cabrio
+    type: coupe 
     model: SF90 spider
     year: 2024
     color: "#8c1c13"
