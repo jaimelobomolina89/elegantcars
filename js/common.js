@@ -371,8 +371,12 @@
         button.focus();
       }
     });
+    // Only close when focus moves to something else. Safari (iOS and macOS)
+    // doesn't focus links on tap/click, so relatedTarget is null there and
+    // closing would hide the menu before the tap reaches the link. Taps
+    // outside are handled by the document click listener below.
     box.addEventListener("focusout", function (event) {
-      if (!box.contains(event.relatedTarget)) setOpen(false);
+      if (event.relatedTarget && !box.contains(event.relatedTarget)) setOpen(false);
     });
     document.addEventListener("click", function (event) {
       if (!box.contains(event.target)) setOpen(false);

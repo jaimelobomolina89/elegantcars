@@ -1137,6 +1137,50 @@ a:hover {
   gap: 8px 24px;
 }
 
+/* Small screens: logo and language globe share the top row, and the page
+   links get a full-width row of their own underneath. */
+@media (max-width: 600px) {
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 0 12px;
+    min-height: 60px;
+  }
+
+  .header-end {
+    display: contents;
+  }
+
+  .header-inner .logo {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .header-inner .logo-image {
+    max-width: 100%;
+    object-position: left center;
+  }
+
+  .header-end > nav:not(.lang-switch) {
+    order: 3;
+    flex-basis: 100%;
+    border-top: 1px solid var(--line);
+  }
+
+  .nav-list {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .nav-list a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 4px;
+    white-space: nowrap;
+  }
+}
+
 .lang-switch {
   position: relative;
 }
