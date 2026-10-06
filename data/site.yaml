@@ -40,7 +40,7 @@ home:
   # shown on its own, or used as the poster while a video loads.
   # To use a video, set `video` to an .mp4 path, e.g. images/hero.mp4.
   image: images/hero.png
-  image_alt: 
+  image_alt: "El circuito de Nürburgring serpenteando entre colinas boscosas"
   video: ""
 
 # Contact page. Replace these placeholder details with your real ones.

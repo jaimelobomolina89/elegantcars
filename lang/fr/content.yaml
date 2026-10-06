@@ -13,7 +13,7 @@ home:
     Grand tourisme, berlines et SUV sélectionnés parmi les marques les plus
     prestigieuses au monde.
   button: Trouvez votre voiture
-  image_alt: "Ferrari SF90 Spider rouge, vue de face"
+  image_alt: "Le circuit du Nürburgring serpentant à travers des collines boisées"
 
 contact:
   title: Contactez-nous
@@ -33,29 +33,8 @@ types:
 
 cars:
   ferrari-sf90-spider:
-    tagline: La nuova dolce vita, version grand tourisme.
-    description: >-
-      Un coupé 2+2 à moteur avant qui préfère l'élégance à l'agressivité. Long
-      capot, flancs épurés et habitacle divisé en deux cockpits font de la
-      Roma une Ferrari faite pour traverser les continents plutôt que pour
-      signer des chronos.
-    engine: V8 biturbo 3,9 L
-  ferrari-296-gts:
-    tagline: Six cylindres, un moteur électrique, le ciel pour horizon.
-    description: >-
-      La version à toit rigide escamotable de la berlinette hybride
-      rechargeable de Ferrari. Son V6 compact est associé à un moteur
-      électrique pour une réponse instantanée, et le toit se replie en
-      quatorze secondes.
-    engine: V6 biturbo 3,0 L hybride rechargeable
-  ferrari-purosangue:
-    tagline: Quatre portes, quatre places, douze cylindres.
-    description: >-
-      La première Ferrari à quatre portes et quatre places conserve un V12
-      atmosphérique à l'avant et des portes arrière antagonistes pour un accès
-      facile. Sa suspension active lui permet de rouler comme une limousine et
-      de virer comme une sportive.
-    engine: V12 atmosphérique 6,5 L
+    tagline: La Ferrari SF90 Spider est une supercar décapotable.
+    engine: V8 biturbo 4,0 L avec trois moteurs électriques
   aston-martin-dbx707:
     tagline: Le SUV à l'âme de sportive.
     description: >-
@@ -63,14 +42,6 @@ cars:
       Une boîte à neuf rapports à embrayage humide, des freins
       carbone-céramique et un châssis affûté le gardent agile malgré sa
       taille.
-    engine: V8 biturbo 4,0 L
-  aston-martin-db12-volante:
-    tagline: Le super tourer, cheveux au vent.
-    description: >-
-      La DB12 découvrable associe un V8 biturbo à une capote en toile qui se
-      replie en quelques secondes. Son confort de grand tourisme et son
-      habitacle fini à la main la rendent aussi à l'aise sur les longs trajets
-      que sur les routes côtières.
     engine: V8 biturbo 4,0 L
   lamborghini-revuelto:
     tagline: Le vaisseau amiral V12, électrifié.
@@ -80,32 +51,25 @@ cars:
       en élytre et monocoque en carbone complètent une voiture taillée pour le
       spectacle.
     engine: V12 6,5 L hybride rechargeable
-  lamborghini-urus-se:
-    tagline: Le super SUV passe à l'hybride rechargeable.
+  porsche-macan-s:
+    tagline: >-
+      Un SUV sportif de taille moyenne qui allie le côté pratique d'un SUV au
+      caractère et aux performances propres à Porsche.
     description: >-
-      L'Urus hybride rechargeable associe un V8 biturbo à un moteur électrique
-      pour plus de puissance et un mode 100 % électrique pour rouler en
-      silence en ville. Il reste une vraie Lamborghini.
-    engine: V8 biturbo 4,0 L hybride rechargeable
-  porsche-911-turbo-s:
-    tagline: L'hypercar de tous les jours.
+      Un SUV premium hautes performances qui associe un moteur puissant, une
+      transmission intégrale, une boîte PDK et un comportement sportif à
+      suffisamment de confort et de praticité pour un usage quotidien.
+    engine: V6 biturbo essence
+  bmw-m8:
+    tagline: >-
+      La BMW M8 Competition est une grand tourisme de luxe au cœur de
+      supercar : confortable pour voyager, et d'une brutalité saisissante
+      quand on la sollicite.
     description: >-
-      La dernière 911 Turbo S ajoute une assistance hybride à son flat-six,
-      affûtant la réponse sans rien perdre de sa légendaire facilité d'usage.
-      La transmission intégrale transmet sa puissance par tous les temps.
-    engine: Flat-six biturbo 3,6 L hybride
-  porsche-panamera-turbo-s-e-hybrid:
-    tagline: Le confort de quatre portes, le rythme d'une sportive.
-    description: >-
-      La berline phare de Porsche associe un V8 biturbo et un moteur
-      électrique. Sa suspension active lui permet de passer de grande routière
-      confortable à berline sportive capable de rouler sur circuit.
-    engine: V8 biturbo 4,0 L hybride rechargeable
-  bmw-m5:
-    tagline: La super berline originelle, désormais électrifiée.
-    description: >-
-      La septième génération de la M5 ajoute un système hybride rechargeable à
-      son V8 biturbo, ce qui en fait la M5 la plus puissante à ce jour. Elle
-      accueille cinq personnes confortablement et parcourt les trajets courts
-      en mode 100 % électrique.
-    engine: V8 biturbo 4,4 L hybride rechargeable
+      La M8 Competition est difficile à classer. Ce n'est pas tout à fait une
+      sportive pure comme une Porsche 911, ni une simple berline de luxe, ni
+      une GT traditionnelle. C'est un mélange des trois : grand tourisme,
+      sportive et voiture de luxe. Elle avale des centaines de kilomètres
+      avec un vrai confort, tout en passant de 0 à 100 km/h en environ
+      3,2 secondes.
+    engine: V8 TwinPower Turbo 4,4 L

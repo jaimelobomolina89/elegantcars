@@ -13,7 +13,7 @@ home:
     Hand-picked grand tourers, saloons and SUVs from the world's most
     desirable marques.
   button: Find your car
-  image_alt: "Red Ferrari SF90 Spider, front view"
+  image_alt: "The Nürburgring circuit winding through wooded hills"
 
 contact:
   title: Contact us
@@ -33,39 +33,14 @@ types:
 
 cars:
   ferrari-sf90-spider:
-    tagline: La nuova dolce vita, in grand-touring form.
-    description: >-
-      A front-engined 2+2 coupe that trades aggression for poise. Long bonnet,
-      clean flanks and a cabin split into two cockpits make the Roma a Ferrari
-      for crossing continents rather than chasing lap times.
-    engine: 3.9 L twin-turbo V8
-  ferrari-296-gts:
-    tagline: Six cylinders, one electric motor, open sky.
-    description: >-
-      The retractable hard-top version of Ferrari's plug-in hybrid berlinetta.
-      Its compact V6 pairs with an electric motor for instant response, and
-      the roof folds away in fourteen seconds.
-    engine: 3.0 L twin-turbo V6 plug-in hybrid
-  ferrari-purosangue:
-    tagline: Four doors, four seats, twelve cylinders.
-    description: >-
-      Ferrari's first four-door, four-seater keeps a naturally aspirated V12
-      up front and rear-hinged back doors for easy access. Active suspension
-      lets it ride like a limousine and corner like a sports car.
-    engine: 6.5 L naturally aspirated V12
+    tagline: The Ferrari SF90 Spider is a convertible supercar.
+    engine: 4.0 L twin-turbo V8 with three electric motors
   aston-martin-dbx707:
     tagline: The SUV with a sports car's soul.
     description: >-
       Aston Martin's performance SUV takes its name from its 707 PS output. A
       wet-clutch nine-speed gearbox, carbon-ceramic brakes and sharpened
       chassis tuning keep it agile despite its size.
-    engine: 4.0 L twin-turbo V8
-  aston-martin-db12-volante:
-    tagline: The super tourer, with the roof down.
-    description: >-
-      The open-top DB12 pairs a twin-turbo V8 with a fabric roof that folds in
-      seconds. Grand-touring comfort and a hand-finished cabin make it as
-      suited to long journeys as to coastal roads.
     engine: 4.0 L twin-turbo V8
   lamborghini-revuelto:
     tagline: The V12 flagship, electrified.
@@ -74,31 +49,24 @@ cars:
       V12 at its heart and adds three electric motors. Scissor doors and a
       carbon monocoque complete a car built for theatre.
     engine: 6.5 L V12 plug-in hybrid
-  lamborghini-urus-se:
-    tagline: The super SUV goes plug-in hybrid.
+  porsche-macan-s:
+    tagline: >-
+      A mid-size sports SUV that combines the practicality of an SUV with
+      Porsche's character and performance.
     description: >-
-      The plug-in hybrid Urus combines a twin-turbo V8 with an electric motor
-      for more power and an electric-only mode for silent city driving. It is
-      still every inch a Lamborghini.
-    engine: 4.0 L twin-turbo V8 plug-in hybrid
-  porsche-911-turbo-s:
-    tagline: The everyday hypercar.
+      A high-performance premium SUV that pairs a powerful engine, all-wheel
+      drive and a PDK gearbox with sporty handling, while staying comfortable
+      and practical enough for everyday use.
+    engine: Twin-turbo petrol V6
+  bmw-m8:
+    tagline: >-
+      The BMW M8 Competition is a luxury grand tourer with the heart of a
+      supercar: comfortable on long journeys, and genuinely brutal when you
+      push it.
     description: >-
-      The latest 911 Turbo S adds hybrid assistance to its flat-six,
-      sharpening response without diluting the car's legendary usability.
-      All-wheel drive puts its power down in any weather.
-    engine: 3.6 L twin-turbo flat-six hybrid
-  porsche-panamera-turbo-s-e-hybrid:
-    tagline: Four-door comfort, sports car pace.
-    description: >-
-      Porsche's flagship four-door combines a twin-turbo V8 and an electric
-      motor. Active suspension lets it switch between relaxed long-distance
-      cruiser and track-capable sports saloon.
-    engine: 4.0 L twin-turbo V8 plug-in hybrid
-  bmw-m5:
-    tagline: The original super saloon, now electrified.
-    description: >-
-      The seventh-generation M5 adds a plug-in hybrid system to its twin-turbo
-      V8, making it the most powerful M5 yet. It seats five in comfort and
-      covers short trips on electric power alone.
-    engine: 4.4 L twin-turbo V8 plug-in hybrid
+      The M8 Competition is hard to pigeonhole. It isn't quite a pure sports
+      car like a Porsche 911, nor simply a luxury saloon, nor a traditional
+      GT. It's a blend of all three: grand tourer, sports car and luxury car.
+      You can cover hundreds of kilometres in real comfort, in a car that
+      also goes from 0 to 100 km/h in around 3.2 seconds.
+    engine: 4.4 L TwinPower Turbo V8

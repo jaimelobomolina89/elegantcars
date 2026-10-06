@@ -27,7 +27,10 @@ Elegant.boot(function (data) {
   // Show the main photo straight away, then upgrade to a carousel once we know
   // how many photos the car has.
   var slot = document.getElementById("car-media-slot");
-  slot.appendChild(Elegant.carMedia(car, "detail-media"));
+  var media = Elegant.carMedia(car, "detail-media");
+  var mainPhoto = media.querySelector("img");
+  if (mainPhoto) media.insertBefore(backdrop(car.image), mainPhoto);
+  slot.appendChild(media);
   Elegant.findPhotos(car).then(function (photos) {
     if (photos.length > 1) {
       slot.replaceChildren(carousel(car, photos, data.credits));
@@ -78,6 +81,21 @@ Elegant.boot(function (data) {
   document.getElementById("car-detail").hidden = false;
 });
 
+// Faded copy of a photo that fills the landscape frame behind the uncropped
+// photo. Decorative, so hidden from screen readers; removed if it fails to load.
+function backdrop(src) {
+  var img = document.createElement("img");
+  img.className = "photo-backdrop";
+  img.alt = "";
+  img.setAttribute("aria-hidden", "true");
+  img.draggable = false;
+  img.addEventListener("error", function () {
+    img.remove();
+  });
+  if (src) img.src = src;
+  return img;
+}
+
 // Accessible photo carousel: previous/next buttons, thumbnails, arrow keys and
 // swipe. It never auto-advances, so there is nothing to pause.
 function carousel(car, photos, credits) {
@@ -90,6 +108,8 @@ function carousel(car, photos, credits) {
 
   var stage = document.createElement("div");
   stage.className = "carousel-stage";
+
+  var fill = backdrop();
 
   var image = document.createElement("img");
   image.className = "carousel-image";
@@ -117,7 +137,7 @@ function carousel(car, photos, credits) {
   counter.className = "carousel-counter";
   counter.setAttribute("aria-live", "polite");
 
-  stage.append(image, prev, next, counter);
+  stage.append(fill, image, prev, next, counter);
 
   var thumbs = document.createElement("ul");
   thumbs.className = "carousel-thumbs container";
@@ -142,6 +162,7 @@ function carousel(car, photos, credits) {
   function show(i) {
     index = (i + photos.length) % photos.length;
     image.src = photos[index];
+    fill.src = photos[index];
     image.alt = Elegant.t("car.photo_alt", { car: car.fullName, n: index + 1, total: photos.length });
     counter.textContent = index + 1 + " / " + photos.length;
     var line = Elegant.creditLine(credits, photos[index]);
