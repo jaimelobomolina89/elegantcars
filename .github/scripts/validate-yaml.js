@@ -12,9 +12,9 @@ var root = path.resolve(__dirname, "..", "..");
 var yaml = require(path.join(root, "js/vendor/js-yaml/js-yaml.umd.min.js"));
 
 var CAR_FIELDS = ["id", "brand", "type", "model", "year", "color", "tagline", "description",
-  "engine", "power", "acceleration", "top_speed", "price", "images", "image_alt"];
+  "engine", "power", "acceleration", "top_speed", "mileage", "price", "images", "image_alt"];
 var REQUIRED = ["id", "brand", "type", "model"];
-var NUMBERS = ["year", "power", "acceleration", "top_speed", "price"];
+var NUMBERS = ["year", "power", "acceleration", "top_speed", "mileage", "price"];
 
 var inGithub = !!process.env.GITHUB_ACTIONS;
 var errors = 0;
@@ -104,7 +104,7 @@ if (site) {
       report("error", file, at("type"), "Coche '" + name + "': el tipo '" + car.type + "' no está en la lista types (las slugs van en minúsculas) / Unknown type slug.");
     }
     NUMBERS.forEach(function (key) {
-      if (key in car && typeof car[key] !== "number") {
+      if (car[key] != null && typeof car[key] !== "number") {
         report("error", file, line, "Coche '" + name + "': '" + key + "' debe ser un número, sin puntos ni símbolos (p. ej. 82000) / '" + key + "' must be a plain number.");
       }
     });

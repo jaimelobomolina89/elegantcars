@@ -67,6 +67,7 @@ car:
   top_speed: Top speed
   type: Car type
   year: Model year
+  mileage: Mileage
   price_from: "From {price}"
   more_brand: "All {brand} cars"
   more_type: "All {type} models"

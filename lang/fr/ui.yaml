@@ -67,6 +67,7 @@ car:
   top_speed: Vitesse maximale
   type: Type de voiture
   year: Année du modèle
+  mileage: Kilométrage
   price_from: "À partir de {price}"
   more_brand: "Toutes les {brand}"
   more_type: "Tous les modèles {type}"

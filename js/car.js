@@ -57,7 +57,8 @@ Elegant.boot(function (data) {
     ["car.acceleration", car.acceleration, " s"],
     ["car.top_speed", car.top_speed, " km/h"],
     ["car.type", car.typeName, ""],
-    ["car.year", car.year, ""]
+    ["car.year", car.year, ""],
+    ["car.mileage", car.mileage, " km"]
   ].forEach(function (spec) {
     if (spec[1] == null || spec[1] === "") return;
     var wrap = document.createElement("div");
