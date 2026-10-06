@@ -114,7 +114,7 @@ cars:
     type: coupe
     model: SF90 spider
     year: 2023
-    mileage: 45400
+    mileage: 3000
     description: >-
       Descripción Ferrari SF90.
     color: "#8c1c13"
@@ -130,7 +130,7 @@ cars:
     type: suv
     model: DBX707
     year: 2024
-    mileage: 76000
+    mileage: 28877
     color: "#20473a"
     tagline: "El SUV con alma de deportivo."
     description: >-
@@ -167,7 +167,7 @@ cars:
     type: suv
     model: macan S
     year: 2022
-    mileage: 55800
+    mileage: 40339
     color: "#5a6470"
     tagline: "SUV deportivo de tamaño medio que combina la practicidad de un SUV con el carácter y las prestaciones propias de Porsche."
     description: >-
@@ -183,7 +183,7 @@ cars:
     type: coupe
     model: m8
     year: 2020
-    mileage: 65600
+    mileage: 89098
     color: "#5a6470"
     tagline: "el BMW M8 Competition es un gran turismo de lujo con el corazón de un superdeportivo, capaz de ofrecer comodidad para viajar y unas prestaciones realmente brutales cuando se le exige.."
     description: >-
@@ -199,7 +199,7 @@ cars:
     type: suv
     model:  x4
     year: 2018
-    mileage: 77600
+    mileage: 79552
     color: "#5a6470"
     tagline: "El hiperdeportivo para todos los días."
     description: >-
