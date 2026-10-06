@@ -201,13 +201,11 @@ cars:
     year: 2018
     mileage: 79552
     color: "#5a6470"
-    tagline: "El hiperdeportivo para todos los días."
+    tagline: "un SUV coupé premium que combina elegancia, deportividad y confort, ofreciendo una conducción potente y dinámica con un diseño exclusivo y tecnología avanzada".
     description: >-
-      El último 911 Turbo S añade asistencia híbrida a su motor bóxer,
-      afinando la respuesta sin perder su legendaria facilidad de uso. La
-      tracción total transmite su potencia con cualquier tiempo.
-    engine: "Bóxer de seis cilindros biturbo de 3,6 L híbrido"
-    power: 711
-    acceleration: 2.5
-    top_speed: 322
+      BMW X4 que combina a la perfección el carácter deportivo de un coupé con la comodidad y versatilidad de un SUV. Destaca por su diseño elegante y dinámico, con una presencia imponente y acabados de gran calidad.
+    engine: "2.0 diésel de 4 cilindros"
+    power: 190
+    acceleration: 8.0
+    top_speed: 225
     price: 23000
