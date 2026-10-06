@@ -29,7 +29,7 @@ Elegant.boot(function (data) {
   var slot = document.getElementById("car-media-slot");
   var media = Elegant.carMedia(car, "detail-media");
   var mainPhoto = media.querySelector("img");
-  if (mainPhoto) media.insertBefore(backdrop(car.image), mainPhoto);
+  if (mainPhoto) media.insertBefore(Elegant.photoBackdrop(car.image), mainPhoto);
   slot.appendChild(media);
   Elegant.findPhotos(car).then(function (photos) {
     if (photos.length > 1) {
@@ -82,21 +82,6 @@ Elegant.boot(function (data) {
   document.getElementById("car-detail").hidden = false;
 });
 
-// Faded copy of a photo that fills the landscape frame behind the uncropped
-// photo. Decorative, so hidden from screen readers; removed if it fails to load.
-function backdrop(src) {
-  var img = document.createElement("img");
-  img.className = "photo-backdrop";
-  img.alt = "";
-  img.setAttribute("aria-hidden", "true");
-  img.draggable = false;
-  img.addEventListener("error", function () {
-    img.remove();
-  });
-  if (src) img.src = src;
-  return img;
-}
-
 // Accessible photo carousel: previous/next buttons, thumbnails, arrow keys and
 // swipe. It never auto-advances, so there is nothing to pause.
 function carousel(car, photos, credits) {
@@ -110,7 +95,7 @@ function carousel(car, photos, credits) {
   var stage = document.createElement("div");
   stage.className = "carousel-stage";
 
-  var fill = backdrop();
+  var fill = Elegant.photoBackdrop();
 
   var image = document.createElement("img");
   image.className = "carousel-image";

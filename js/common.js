@@ -60,6 +60,21 @@
     return svg;
   }
 
+  // Faded, cropped copy of a photo that fills the frame behind the uncropped
+  // photo. Decorative, so hidden from screen readers; removed if it fails to load.
+  function photoBackdrop(src) {
+    var img = document.createElement("img");
+    img.className = "photo-backdrop";
+    img.alt = "";
+    img.setAttribute("aria-hidden", "true");
+    img.draggable = false;
+    img.addEventListener("error", function () {
+      img.remove();
+    });
+    if (src) img.src = src;
+    return img;
+  }
+
   // A container holding the car's photo. If the file is missing it falls back
   // to the drawn silhouette, so a new car never shows a broken image.
   function carMedia(car, className) {
@@ -497,10 +512,13 @@
     box.setAttribute("aria-hidden", "true");
     var img = imageFromCandidates(candidates, function () {
       box.remove();
+      document.body.classList.remove("has-backdrop");
     });
     img.alt = "";
     box.appendChild(img);
     document.body.prepend(box);
+    // Lets the CSS give the text panels so it stays readable over the image.
+    document.body.classList.add("has-backdrop");
   }
 
   // "Photo: Author · CC BY-SA 4.0" for an image listed in images/credits.yaml,
@@ -578,6 +596,7 @@
     setTitle: setTitle,
     silhouette: silhouette,
     carMedia: carMedia,
+    photoBackdrop: photoBackdrop,
     findPhotos: findPhotos,
     imageCandidates: imageCandidates,
     imageFromCandidates: imageFromCandidates,

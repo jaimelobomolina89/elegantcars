@@ -191,6 +191,7 @@ a:hover {
 .site-footer {
   margin-top: 64px;
   border-top: 1px solid var(--line);
+  background: var(--bg);
   color: var(--ink-muted);
   font-size: 0.875rem;
 }
@@ -288,7 +289,7 @@ a:hover {
   position: relative;
   flex: 1;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   min-height: 560px;
   min-height: max(560px, 85svh);
   overflow: hidden;
@@ -326,19 +327,17 @@ a:hover {
   }
 }
 
+/* The header (68px) sits on top of the hero, so this puts the title about
+   100px below it. */
 .hero-content {
   position: relative;
-  padding-top: 140px;
+  padding-top: 168px;
   padding-bottom: 88px;
 }
 
+/* Sized to fit the title on one line, even on a phone. */
 .hero h1 {
-  max-width: 14ch;
-  font-size: clamp(2.5rem, 1.6rem + 4vw, 4.5rem);
-}
-
-.hero .eyebrow {
-  color: var(--gold);
+  font-size: clamp(1.5rem, 0.5rem + 5vw, 4.5rem);
 }
 
 .hero .lede {
@@ -347,17 +346,27 @@ a:hover {
   margin-bottom: 32px;
 }
 
+/* See-through gold with white text over the photo; solid gold on hover, with
+   dark text, as white on solid gold wouldn't have enough contrast. */
 .button-hero {
   min-height: 52px;
   padding: 14px 28px;
   font-size: 1.0625rem;
-  background: var(--gold);
+  background: rgba(217, 181, 111, 0.3);
   border-color: var(--gold);
-  color: #1c1b19;
+  color: #fff;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .button-hero:hover {
-  background: #e7c88a;
+  background: var(--gold);
+  color: #1c1b19;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button-hero {
+    transition: none;
+  }
 }
 
 .hero-toggle {
@@ -430,6 +439,12 @@ a:hover {
   font-family: var(--font-display);
   font-size: 1.375rem;
   font-weight: 600;
+}
+
+/* Narrower brand tiles so all the brands fit on one row on a laptop screen;
+   auto-fit stretches them to fill the row whatever the number of brands. */
+.tile-grid-brands {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 }
 
 .tile-grid-brands .tile {
@@ -529,9 +544,11 @@ a:hover {
   color: var(--ink-muted);
 }
 
+/* One car per row: photo on the left, details on the right. On narrow
+   screens the photo goes on top instead. */
 .car-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 
@@ -570,14 +587,19 @@ a:hover {
 }
 
 .card-media-photo {
+  position: relative;
   padding: 0;
   aspect-ratio: 16 / 10;
+  overflow: hidden;
 }
 
+/* The whole photo is shown, never cropped; .photo-backdrop fills the rest of
+   the frame. */
 .card-media-photo img {
+  position: relative;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .card-body {
@@ -650,6 +672,41 @@ a:hover {
   font-family: var(--font-display);
   font-size: 1.125rem;
   color: var(--accent);
+}
+
+@media (min-width: 720px) {
+  .card {
+    flex-direction: row;
+  }
+
+  .card-media {
+    flex: 0 0 42%;
+    display: flex;
+    align-items: center;
+  }
+
+  /* The photo fills the left column, however tall the details are. */
+  .card-media-photo {
+    aspect-ratio: auto;
+    min-height: 260px;
+  }
+
+  .card-media-photo img {
+    position: absolute;
+    inset: 0;
+  }
+
+  .card-media svg {
+    width: 100%;
+  }
+
+  .card-body {
+    padding: 24px 28px;
+  }
+
+  .card-specs {
+    max-width: 420px;
+  }
 }
 
 .empty-state {
@@ -858,7 +915,8 @@ a:hover {
 /* Faded, cropped copy of the current photo behind the uncropped one, so the
    frame keeps a fixed landscape height without empty bars. */
 .detail-media-photo .photo-backdrop,
-.carousel-stage .photo-backdrop {
+.carousel-stage .photo-backdrop,
+.card-media-photo .photo-backdrop {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -1056,16 +1114,19 @@ a:hover {
   outline-color: #fff;
 }
 
-/* Stock page: faded brand image behind the page when filtering by brand.
-   Tweak --backdrop-opacity to make it stronger or subtler. */
+/* Image behind the whole page: the brand image on a brand-filtered stock
+   page, and images/filters/filters-page.* on the filters page. Tweak
+   --backdrop-opacity to make it stronger or subtler, and --text-panel for the
+   see-through panel behind the page content. */
 
 :root {
-  --backdrop-opacity: 0.16;
+  --backdrop-opacity: 0.85;
+  --text-panel: rgba(255, 255, 255, 0.7);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --backdrop-opacity: 0.22;
+    --text-panel: rgba(20, 19, 17, 0.5);
   }
 }
 
@@ -1082,6 +1143,24 @@ a:hover {
   max-width: none;
   object-fit: cover;
   opacity: var(--backdrop-opacity);
+}
+
+/* The page content sits on one see-through panel over the image. Muted text
+   switches to the main ink colour, as the grey wouldn't stand out enough. */
+.has-backdrop main {
+  margin-top: 32px;
+  padding-bottom: 40px;
+  background: var(--text-panel);
+  border-radius: var(--radius);
+}
+
+.has-backdrop .page-intro {
+  padding-top: 32px;
+}
+
+.has-backdrop .page-intro .lede,
+.has-backdrop .results-status {
+  color: var(--ink);
 }
 
 /* Site logo image (images/logo.*, images/logo-on-dark.*). Change the height

@@ -26,7 +26,7 @@ Static web portal for high-end cars. Plain HTML/CSS/JS, no build step, no framew
   - Logos, type images and backgrounds are tried as `.png`, `.jpg`, `.jpeg`, `.svg`, in that order, via `imageCandidates`.
   - Car photos are `images/cars/<id>/1.jpg, 2.jpg, …`, probed in order with no upper limit. Photo 1 is the stock card.
   - The site logo is `images/logo.*` (light backgrounds) and `images/logo-on-dark.*`.
-  - Brand backgrounds are `images/filters/<slug>.*`, and the filters page background is `images/filters/filters-page.*`.
+  - Brand backgrounds are `images/filters/<slug>.*`, the filters page background is `images/filters/filters-page.*`, and the stock page background (when not filtered by brand) is `images/filters/stock-page.*`.
   - Every image needs a graceful fallback (drawn silhouette, text, or nothing). Never show a broken image.
 - **Image credits:** most photos are CC BY / CC BY-SA from Wikimedia Commons and must stay credited in `images/credits.yaml`. When an image is replaced, update or remove its entry. Only use freely licensed images (no NC/ND), and never redraw brand trademarks; see `images/brands/CREDITS.md`.
 - **New interface text:** add the key to `lang/es/ui.yaml` and to `en` and `fr`. Plurals use `{one, other}` and `{placeholders}`.

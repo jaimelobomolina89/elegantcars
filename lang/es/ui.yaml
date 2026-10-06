@@ -14,7 +14,7 @@ logo_label: elegantcars, inicio
 nav:
   label: Principal
   home: Inicio
-  filters: Filtros
+  filters: Catálogo
   stock: Stock
   contact: Contacto
 
@@ -23,7 +23,7 @@ language:
 
 page_titles:
   home: Coches de alta gama
-  filters: Filtros
+  filters: Catálogo
   stock: Stock
   contact: Contacto
   car_not_found: Coche no encontrado
@@ -38,7 +38,7 @@ home:
 
 filters:
   eyebrow: Encuentra tu coche
-  title: Filtros
+  title: Catálogo
   intro: Elige una marca o un tipo de coche para ver los coches disponibles en stock.
   by_brand: Por marca
   by_type: Por tipo de coche

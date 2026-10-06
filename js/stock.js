@@ -20,7 +20,7 @@ Elegant.boot(function (data) {
   document.getElementById("stock-title").textContent = title;
   Elegant.setTitle(title + " · " + Elegant.t("page_titles.stock"));
 
-  renderBrandBackdrop();
+  renderBackdrop();
 
   renderActiveFilters();
 
@@ -60,11 +60,14 @@ Elegant.boot(function (data) {
     box.hidden = !box.children.length;
   }
 
-  // When filtering by brand, show images/filters/<brand>.(png|jpg|jpeg|svg)
-  // faded behind the page. Decorative only; nothing shows if there's no file.
-  function renderBrandBackdrop() {
+  // Background behind the page: images/filters/<brand>.(png|jpg|jpeg|svg) when
+  // filtering by brand, otherwise (or if the brand has none)
+  // images/filters/stock-page.*, or the file set as `stock_background` in
+  // site.yaml. Decorative only; nothing shows if there's no file.
+  function renderBackdrop() {
     var brand = data.brandBySlug[filters.brand];
-    if (brand) Elegant.backdrop(brand.backgrounds);
+    var page = Elegant.imageCandidates(data.site.stock_background, "images/filters/stock-page");
+    Elegant.backdrop(brand ? brand.backgrounds.concat(page) : page);
   }
 
   function card(car) {
@@ -73,7 +76,13 @@ Elegant.boot(function (data) {
 
     var media = Elegant.carMedia(car, "card-media");
     var photo = media.querySelector("img");
-    if (photo) photo.loading = "lazy";
+    if (photo) {
+      // The whole photo is shown, with a faded copy filling the rest of the frame.
+      photo.loading = "lazy";
+      var fill = Elegant.photoBackdrop(car.image);
+      fill.loading = "lazy";
+      media.insertBefore(fill, photo);
+    }
 
     var body = document.createElement("div");
     body.className = "card-body";

@@ -7,7 +7,7 @@ logo_label: elegantcars, home
 nav:
   label: Main
   home: Home
-  filters: Filters
+  filters: Catalogue
   stock: Stock
   contact: Contact
 
@@ -16,7 +16,7 @@ language:
 
 page_titles:
   home: High-end cars
-  filters: Filters
+  filters: Catalogue
   stock: Stock
   contact: Contact
   car_not_found: Car not found
@@ -31,7 +31,7 @@ home:
 
 filters:
   eyebrow: Find your car
-  title: Filters
+  title: Catalogue
   intro: Choose a brand or a car type to see the matching cars in stock.
   by_brand: By brand
   by_type: By car type

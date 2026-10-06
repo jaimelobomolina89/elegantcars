@@ -62,12 +62,19 @@ images/filters/bmw.jpg:
   source: "https://commons.wikimedia.org/wiki/File:BMW_G90_M5_Brooklyn_Grey_Metallic_(1).jpg"
   title: "BMW G90 M5 Brooklyn Grey Metallic (1).jpg"
 
-images/filters/filters-page.jpg:
-  author: "Alexander-93"
+images/filters/stock-page.jpg:
+  author: "SunflowerYuri"
   license: "CC BY-SA 4.0"
   license_url: "https://creativecommons.org/licenses/by-sa/4.0"
-  source: "https://commons.wikimedia.org/wiki/File:Lamborghini_Revuelto_Auto_Zuerich_2023_1X7A1103.jpg"
-  title: "Lamborghini Revuelto Auto Zuerich 2023 1X7A1103.jpg"
+  source: "https://commons.wikimedia.org/wiki/File:RCN_8._2023_6_(Brünnchen).jpg"
+  title: "RCN 8. 2023 6 (Brünnchen).jpg"
+
+images/filters/filters-page.jpg:
+  author: "Deryoman"
+  license: "CC BY 2.5"
+  license_url: "https://creativecommons.org/licenses/by/2.5"
+  source: "https://commons.wikimedia.org/wiki/File:Nuerburgring_ex_muehle.JPG"
+  title: "Nuerburgring ex muehle.JPG"
 
 images/types/berlina.jpg:
   author: "OWS Photography"

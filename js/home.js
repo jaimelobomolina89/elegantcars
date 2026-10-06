@@ -3,7 +3,6 @@ Elegant.boot(function (data) {
   var home = data.home;
   var media = document.getElementById("hero-media");
 
-  document.getElementById("hero-eyebrow").textContent = home.eyebrow || "";
   document.getElementById("hero-title").textContent = home.title || "";
   document.getElementById("hero-text").textContent = home.text || "";
   document.getElementById("hero-button").textContent = home.button || "";

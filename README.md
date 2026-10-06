@@ -66,6 +66,7 @@ images/brands/<brand slug>.png     brand logo on the filters page (.png, .jpg, .
 images/types/<type slug>.png       car type image on the filters page (.png, .jpg, .jpeg or .svg)
 images/filters/<brand slug>.jpg    faded background of the stock page when filtered by that brand (.png, .jpg, .jpeg or .svg)
 images/filters/filters-page.jpg    faded background of the filters page (.png, .jpg, .jpeg or .svg)
+images/filters/stock-page.jpg      background of the stock page when not filtering by brand (same formats)
 images/cars/<car id>/1.jpg         main photo: stock card and first slide
 images/cars/<car id>/2.jpg, 3.jpg… more carousel slides (16:9 or 16:10, e.g. 1600×900)
 ```
@@ -74,7 +75,7 @@ images/cars/<car id>/2.jpg, 3.jpg… more carousel slides (16:9 or 16:10, e.g. 1
 - **Car photos:** the detail page shows `1.jpg`, `2.jpg`, `3.jpg` and so on in order, stopping at the first missing number, so adding `4.jpg` adds a slide with no YAML change. To use other file names or a custom order, list them under `images:` on that car in the YAML. If a car has no photos, a drawn illustration of its car type in the car's `color` is shown instead.
 - **Brand logos:** the current files are the brands' official wordmarks (and the BMW roundel) from Wikimedia Commons. See `images/brands/CREDITS.md` for sources and trademark notes. The site looks for `<slug>.png`, then `.jpg`, `.jpeg` and `.svg`, so any of those formats works under the brand's slug. To use a different file name, set `logo:` on the brand in the YAML. If a logo is missing, the brand name is shown on its own.
 - **Car type images:** same rules as logos, in `images/types/` (for example `images/types/suv.png`). A `.png` wins over a `.jpg` with the same name, so delete the old file when you change format. To use a different file name, set `image:` on the type in the YAML. If an image is missing, a drawn illustration of the type is shown.
-- **Brand backgrounds:** when the stock is filtered by a brand (`stock.html?brand=ferrari`), `images/filters/<brand slug>` is shown faded behind the page. Any of the four formats works. To use another file name, set `background:` on the brand in the YAML. If there's no file, no background is shown. To make it stronger or subtler, change `--backdrop-opacity` in `css/styles.css`. Same idea on the filters page with `images/filters/filters-page.*`, or set `filters_background:` under `site:` in the YAML.
+- **Brand backgrounds:** when the stock is filtered by a brand (`stock.html?brand=ferrari`), `images/filters/<brand slug>` is shown faded behind the page. Any of the four formats works. To use another file name, set `background:` on the brand in the YAML. If there's no file, no background is shown. To make it stronger or subtler, change `--backdrop-opacity` in `css/styles.css`. Same idea on the filters page with `images/filters/filters-page.*`, or set `filters_background:` under `site:` in the YAML. The stock page uses `images/filters/stock-page.*` (or `stock_background:` under `site:`) when it isn't filtered by brand, or when the brand has no image.
 - **Homepage video:** put an `.mp4` file in `images/` and set `home.video` in the YAML, for example `video: images/hero.mp4`. The hero image is used as the poster while the video loads, and visitors get a pause button.
 
 ## Image credits
