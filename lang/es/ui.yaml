@@ -85,6 +85,8 @@ car:
   previous_photo: Foto anterior
   next_photo: Foto siguiente
   show_photo: "Mostrar la foto {n} de {total}"
+  open_fullscreen: Ver a pantalla completa
+  close_fullscreen: Cerrar
 
 contact:
   eyebrow: Contacto

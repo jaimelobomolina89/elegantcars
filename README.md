@@ -56,7 +56,7 @@ Everything is in **`data/site.yaml`**: homepage text and media, contact details,
 
 ## Images
 
-All images live in `images/`. The car photos, hero, brand backgrounds and type images are real, freely licensed photos from Wikimedia Commons (see **Image credits** below), except `images/types/suv.jpeg`, which is your own upload. To use your own photos, replace each file and keep its name:
+All images live in `images/`. The car photos, hero and backgrounds are real, freely licensed photos from Wikimedia Commons (see **Image credits** below). The car type images are black car figures on a transparent background (PNG). To use your own photos, replace each file and keep its name:
 
 ```
 images/logo.png                    site logo on light backgrounds (.png, .jpg, .jpeg or .svg)

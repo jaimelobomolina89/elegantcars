@@ -76,21 +76,21 @@ images/filters/filters-page.jpg:
   source: "https://commons.wikimedia.org/wiki/File:Nuerburgring_ex_muehle.JPG"
   title: "Nuerburgring ex muehle.JPG"
 
-images/types/berlina.jpg:
+images/types/berlina.png:
   author: "OWS Photography"
   license: "CC BY 4.0"
   license_url: "https://creativecommons.org/licenses/by/4.0"
   source: "https://commons.wikimedia.org/wiki/File:BMW_M5_(G90)_Washington_DC_Metro_Area,_USA.jpg"
   title: "BMW M5 (G90) Washington DC Metro Area, USA.jpg"
 
-images/types/cabrio.jpg:
+images/types/cabrio.png:
   author: "Alexander-93"
   license: "CC BY-SA 4.0"
   license_url: "https://creativecommons.org/licenses/by-sa/4.0"
   source: "https://commons.wikimedia.org/wiki/File:Aston_Martin_DB12_Volante_IMG_9323.jpg"
   title: "Aston Martin DB12 Volante IMG 9323.jpg"
 
-images/types/coupe.jpg:
+images/types/coupe.png:
   author: "Alexander Migl"
   license: "CC BY-SA 4.0"
   license_url: "https://creativecommons.org/licenses/by-sa/4.0"
